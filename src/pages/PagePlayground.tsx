@@ -18,11 +18,10 @@ import { useState } from 'react';
 import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
-import PanelStyle from 'src/layouts/playground/style/PanelStyle';
+import PanelStyle from 'src/layouts/playground/PanelStyle';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import PanelSubject from 'src/layouts/playground/subject/PanelSubject';
 import PromptCard from 'src/components/card/PromptCard';
-import PanelGridCards from 'src/components/card/PanelGridCards';
 import PanelView from 'src/layouts/playground/view/PanelView';
 import PanelQualities from 'src/layouts/playground/qualities/PanelQualities';
 // ----------------------------------------------------------------------
@@ -84,7 +83,10 @@ export default function PageOne() {
         />
       </Container>
       <TabContext value={tabValue} aria-label="scrollable auto tabs example">
-        <TabList sx={{ marginLeft: '25px', marginTop: '20px' }} onChange={handleTabChange}>
+        <TabList
+          sx={{ marginLeft: '25px', marginTop: '20px', marginBottom: '-20px' }}
+          onChange={handleTabChange}
+        >
           <Tab label="Style" value="style" />
           <Tab label="Subject" value="subject" />
           <Tab label="Qualities" value="qualities" />

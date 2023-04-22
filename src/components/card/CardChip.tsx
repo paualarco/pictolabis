@@ -32,37 +32,22 @@ export default function PromptCard({ title, img, isLiked, isPinned, isAdded }: P
   };
 
   return (
-    <Card sx={{ maxWidth: 270 }}>
-      {/* <CardActionArea> */}
-      <CardMedia
-        component="img"
-        height="210"
-        image={img} // fileSys.existsSync(img) ? img : fallbackImg}
-        alt={title}
-        defaultValue="a"
-      />
-      <Typography sx={{ marginLeft: '10px' }} variant="h6">
-        {title}
-      </Typography>
-
-      {/* </CardActionArea> */}
-      <CardActions>
-        <Stack maxHeight="25px" direction="row" spacing={4}>
-          <Button size="medium" color="secondary">
-            <PushPinIcon color={pinnedColor} fontSize="medium" />
-          </Button>
-          <Button>
-            <AddIcon color={addColor} fontSize="medium" />
-          </Button>
-          <Button color="error">
-            {isLiked ? (
-              <FavoriteIcon color="inherit" fontSize="medium" />
-            ) : (
-              <FavoriteBorderIcon color="inherit" fontSize="medium" />
-            )}
-          </Button>
-        </Stack>
-      </CardActions>
-    </Card>
+    <Chip
+      color="default"
+      size="medium"
+      deleteIcon={
+        <IconButton>
+          <ArrowForwardIos fontSize="small" />
+        </IconButton>
+      }
+      onDelete={handleDelete}
+      clickable
+      label="Clickable "
+      icon={
+        <IconButton>
+          <ArrowBackIos fontSize="small" />
+        </IconButton>
+      }
+    />
   );
 }

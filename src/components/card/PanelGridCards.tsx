@@ -8,20 +8,34 @@ import PushPinIcon from '@mui/icons-material/PushPin';
 import AddIcon from '@mui/icons-material/Add';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import PromptCard, { PromptCardProps } from './PromptCard';
+import { CardDetails, CardReference } from 'src/types/CardDetails';
+import { cardsBasePath } from 'src/utils/data';
+import { bool } from 'yup';
+import PromptCard from './PromptCard';
 
 export type GridPromptCardProps = {
-  cards: PromptCardProps[];
+  cards: CardDetails[];
 };
+
 export default function PanelGridCards({ cards }: GridPromptCardProps) {
   return (
     <Box sx={{ marginTop: '10px', flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 1, sm: 2, md: 6 }}>
-        {cards.map(({ title, img, isLiked, isAdded, isPinned }) => (
-          <Grid item>
-            <PromptCard title={title} img={img} isLiked isAdded isPinned />
-          </Grid>
-        ))}
+        {cards.map(({ reference, isLiked, isAdded, isPinned }) => {
+          const imgPath = `${cardsBasePath}${reference.img}`;
+
+          return (
+            <Grid item>
+              <PromptCard
+                title={reference.title}
+                img={imgPath}
+                isLiked={isLiked}
+                isAdded={isAdded}
+                isPinned={isPinned}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
     </Box>
   );

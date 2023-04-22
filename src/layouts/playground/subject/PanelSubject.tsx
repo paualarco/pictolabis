@@ -43,7 +43,7 @@ export default function PanelSubject() {
       //  },
       // }}
     >
-      <TabList sx={{ marginTop: '-15px' }} onChange={handleTabChange}>
+      <TabList onChange={handleTabChange}>
         <Tab label="People" value="people" />
         <Tab label="Animals" value="animals" />
         <Tab label="Nature" value="nature" />
