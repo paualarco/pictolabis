@@ -14,6 +14,7 @@ export const PATH_AUTH = {
 
 export const PATH_DASHBOARD = {
   root: ROOTS_DASHBOARD,
+  intro: path(ROOTS_DASHBOARD, '/intro'),
   playground: path(ROOTS_DASHBOARD, '/playground'),
   chart: path(ROOTS_DASHBOARD, '/chart'),
   history: path(ROOTS_DASHBOARD, '/history'),

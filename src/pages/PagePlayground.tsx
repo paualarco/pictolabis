@@ -26,7 +26,7 @@ import PanelView from 'src/layouts/playground/view/PanelView';
 import PanelQualities from 'src/layouts/playground/qualities/PanelQualities';
 // ----------------------------------------------------------------------
 
-export default function PageOne() {
+export default function PagePlayground() {
   const { copy } = useCopyToClipboard();
   const { enqueueSnackbar } = useSnackbar();
 

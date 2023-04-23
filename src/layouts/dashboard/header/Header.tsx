@@ -2,6 +2,10 @@
 import { useTheme } from '@mui/material/styles';
 import { Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 // utils
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedinIcon from '@mui/icons-material/LinkedIn';
+
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { bgBlur } from '../../../utils/cssStyles';
 // hooks
 import useOffSetTop from '../../../hooks/useOffSetTop';
@@ -58,6 +62,22 @@ export default function Header({ onOpenNav }: Props) {
         spacing={{ xs: 0.5, sm: 1.5 }}
       >
         <LanguagePopover />
+
+        <IconButton
+          aria-label="github"
+          href="https://github.com/melics/pictolabis"
+          sx={{ color: 'black' }}
+        >
+          <GitHubIcon fontSize="medium" />
+        </IconButton>
+
+        <IconButton
+          aria-label="twitter"
+          href="https://twitter.com/paualarco"
+          sx={{ color: '#33B2FF' }}
+        >
+          <TwitterIcon fontSize="medium" />
+        </IconButton>
 
         {/* <NotificationsPopover /> */}
 

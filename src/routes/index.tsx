@@ -1,6 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import PageChart from 'src/pages/PageChart';
 // layouts
+import PageIntro from 'src/pages/PageIntro';
 import CompactLayout from '../layouts/compact';
 import DashboardLayout from '../layouts/dashboard';
 // config
@@ -27,6 +28,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
+        { path: 'intro', element: <PageIntro /> },
         { path: 'playground', element: <PagePlayground /> },
         { path: 'chart', element: <PageChart /> },
         { path: 'history', element: <PageHistory /> },

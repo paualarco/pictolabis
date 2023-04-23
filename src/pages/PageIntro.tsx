@@ -11,7 +11,7 @@ import { useSettingsContext } from '../components/settings';
 
 // ----------------------------------------------------------------------
 
-export default function PageContact() {
+export default function PageIntro() {
   const { themeStretch } = useSettingsContext();
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -73,11 +73,7 @@ export default function PageContact() {
             <Box mt="30px" alignItems="center" justifyContent="center">
               <Stack spacing={1} direction="column" alignContent="center">
                 <Stack spacing={1} direction="row" alignContent="center">
-                  <IconButton
-                    aria-label="twitter"
-                    href="https://twitter.com/paualarco"
-                    sx={{ color: '#33B2FF' }}
-                  >
+                  <IconButton aria-label="twitter" href="https://twitter.com/paualarco">
                     <TwitterIcon fontSize="large" />
                   </IconButton>
 
@@ -85,21 +81,13 @@ export default function PageContact() {
                     aria-label="linkedin"
                     href="https://www.linkedin.com/in/big-data-developer/"
                   >
-                    <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
+                    <LinkedinIcon fontSize="large" />
                   </IconButton>
 
-                  <IconButton
-                    aria-label="github"
-                    href="https://github.com/melics/pictolabis"
-                    sx={{ color: 'black' }}
-                  >
+                  <IconButton aria-label="github" href="https://github.com/melics/pictolabis">
                     <GitHubIcon fontSize="large" />
                   </IconButton>
-                  <IconButton
-                    aria-label="instagram"
-                    href="https://www.instagram.com/paualarco.ai/"
-                    sx={{ color: '#FF95FD' }}
-                  >
+                  <IconButton aria-label="instagram" href="https://www.instagram.com/paualarco.ai/">
                     <InstagramIcon fontSize="large" />
                   </IconButton>
                 </Stack>
