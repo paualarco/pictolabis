@@ -109,13 +109,17 @@ export default function SettingsDrawer() {
             <ModeOptions />
           </Block>
 
+          {/* <Block title="Contrast">
+            <ContrastOptions />
+          </Block> */}
+
           <Block title="Layout">
             <LayoutOptions />
           </Block>
 
-          <Block title="Presets">
+          {/* <Block title="Presets">
             <ColorPresetsOptions />
-          </Block>
+          </Block> */}
         </Scrollbar>
 
         <Box sx={{ p: SPACING, pt: 0 }}>

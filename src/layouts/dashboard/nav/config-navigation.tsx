@@ -1,8 +1,8 @@
 // routes
+import SchemaIcon from '@mui/icons-material/Schema';
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
 import SvgColor from '../../../components/svg-color';
-
 // ----------------------------------------------------------------------
 
 const icon = (name: string) => (
@@ -18,6 +18,7 @@ const ICONS = {
   file: icon('ic_file'),
   folder: icon('ic_folder'),
   label: icon('ic_label'),
+  chart: <SchemaIcon />,
 };
 
 const navConfig = [
@@ -28,7 +29,7 @@ const navConfig = [
     items: [
       { title: 'Intro', path: PATH_DASHBOARD.intro, icon: ICONS.label },
       { title: 'Playground', path: PATH_DASHBOARD.playground, icon: ICONS.playground },
-      { title: 'Categorization', path: PATH_DASHBOARD.chart, icon: ICONS.label },
+      { title: 'Categorization', path: PATH_DASHBOARD.chart, icon: ICONS.chart },
       { title: 'History', path: PATH_DASHBOARD.history, icon: ICONS.file },
       { title: 'Contact', path: PATH_DASHBOARD.contact, icon: ICONS.user },
     ],

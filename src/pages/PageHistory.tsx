@@ -15,7 +15,7 @@ export default function PageHistory() {
         <title> History</title>
       </Helmet>
 
-      <Container maxWidth={themeStretch ? false : 'xl'}>
+      <Container maxWidth={themeStretch ? false : 'md'}>
         <Typography variant="h3" component="h1" paragraph>
           History
         </Typography>

@@ -65,7 +65,7 @@ export default function Header({ onOpenNav }: Props) {
 
         <IconButton
           aria-label="github"
-          href="https://github.com/melics/pictolabis"
+          href="https://github.com/pictolabis/pictolabis"
           sx={{ color: 'black' }}
         >
           <GitHubIcon fontSize="medium" />

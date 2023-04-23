@@ -13,7 +13,7 @@ const Loadable = (Component: ElementType) => (props: any) =>
 
 // ----------------------------------------------------------------------
 
-export const PageIntroduction = Loadable(lazy(() => import('../pages/PageIntro')));
+export const PageIntroduction = Loadable(lazy(() => import('../pages/PageWelcome')));
 export const PagePlayground = Loadable(lazy(() => import('../pages/PagePlayground')));
 export const PageChart = Loadable(lazy(() => import('../pages/PageChart')));
 export const PageHistory = Loadable(lazy(() => import('../pages/PageHistory')));

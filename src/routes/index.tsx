@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import PageChart from 'src/pages/PageChart';
 // layouts
-import PageIntro from 'src/pages/PageIntro';
+import PageIntro from 'src/pages/PageWelcome';
 import CompactLayout from '../layouts/compact';
 import DashboardLayout from '../layouts/dashboard';
 // config

@@ -50,19 +50,16 @@ export default function PagePlayground() {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Helmet>
           <title> Playground </title>
         </Helmet>
-
         <Typography variant="h3" component="h1" paragraph>
           Playground
         </Typography>
         <Typography gutterBottom>
           Inspiration lab to enhance your creativity writing prompts.
         </Typography>
-      </Container>
-      <Container maxWidth="lg">
         <TextField
           fullWidth
           multiline

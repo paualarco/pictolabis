@@ -215,12 +215,22 @@ export default function PageChart() {
 
   return (
     <>
-      <Helmet>
-        <title> Playground </title>
-      </Helmet>
+      <Container maxWidth="md">
+        <Helmet>
+          <title> Categorization </title>
+        </Helmet>
+
+        <Typography variant="h3" component="h1" paragraph>
+          Categorization
+        </Typography>
+        <Typography gutterBottom>
+          Below chart illustrates the categorisation that we use to represent all the important
+          aspects to consider on image descriptions.
+        </Typography>
+      </Container>
 
       <Container maxWidth="xl">
-        <Block title="By Group" sx={{ overflow: 'auto' }}>
+        <Block title="Chart" sx={{ overflow: 'auto' }}>
           <OrganizationalChart data={DATA} variant="simple" lineHeight="64px" />
         </Block>
       </Container>

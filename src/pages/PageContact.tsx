@@ -47,21 +47,20 @@ export default function PageContact() {
         <title> Contact</title>
       </Helmet>
 
-      <Container maxWidth={themeStretch ? false : 'xl'}>
+      <Container maxWidth={themeStretch ? false : 'md'}>
         <Typography variant="h3" component="h1" paragraph>
           Contact
         </Typography>
       </Container>
-      <Container maxWidth={themeStretch ? false : 'md'} sx={{ marginTop: '60px' }}>
-        <Typography gutterBottom>Hey there! 👋🏼</Typography>
-
+      <Container maxWidth={themeStretch ? false : 'md'} sx={{ marginTop: '20px' }}>
+        <Typography gutterBottom>Hey there! Thanks for checking out this site. 🤗</Typography>
         <Typography gutterBottom>
-          Thank you for checking out this site, my name is Pau Alarcón, I am a Software Engineer and
-          lately having fun creating digital art using AI.
+          My name is Pau Alarcón, a passionate Software Engineer and lately I have been having a
+          blast creating digital art with the power of AI.
         </Typography>
         <Typography gutterBottom>
-          The motivation behind this project was to practice my frontend skills building a cool web
-          app that can help people to get inspired on writing original prompts.
+          The motivation behind this project was to building a cool web app that can help artists to
+          get inspired on writing original prompts.
         </Typography>
         <Typography gutterBottom>
           All feedback is much appreciated, get in touch with me and drop a ⭐ on github if you
