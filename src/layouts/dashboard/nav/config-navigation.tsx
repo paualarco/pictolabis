@@ -28,8 +28,8 @@ const navConfig = [
     items: [
       { title: 'Playground', path: PATH_DASHBOARD.playground, icon: ICONS.playground },
       { title: 'Categorization', path: PATH_DASHBOARD.chart, icon: ICONS.label },
-      { title: 'History', path: PATH_DASHBOARD.two, icon: ICONS.file },
-      { title: 'Credits', path: PATH_DASHBOARD.three, icon: ICONS.analytics },
+      { title: 'History', path: PATH_DASHBOARD.history, icon: ICONS.file },
+      { title: 'Contact', path: PATH_DASHBOARD.contact, icon: ICONS.user },
     ],
   },
 

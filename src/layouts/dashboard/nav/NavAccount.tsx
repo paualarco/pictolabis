@@ -1,8 +1,7 @@
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
-// auth
-import { useAuthContext } from '../../../auth/useAuthContext';
+
 // components
 import { CustomAvatar } from '../../../components/custom-avatar';
 
@@ -19,21 +18,15 @@ const StyledRoot = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function NavAccount() {
-  const { user } = useAuthContext();
-
-  return (
-    <StyledRoot>
-      <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
-
-      <Box sx={{ ml: 2, minWidth: 0 }}>
-        <Typography variant="subtitle2" noWrap>
-          {user?.displayName}
-        </Typography>
-
-        <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
-          {user?.role}
-        </Typography>
-      </Box>
-    </StyledRoot>
-  );
+  // return (
+  //   <StyledRoot>
+  //     {/* <CustomAvatar src={"user?.photoURL"} alt={user?.displayName} name={user?.displayName} /> */}
+  //     <Box sx={{ ml: 2, minWidth: 0 }}>
+  //       <></>
+  //       {/* <Typography variant="subtitle2" noWrap>
+  //         {user?.displayName}
+  //       </Typography> */}
+  //     </Box>
+  //   </StyledRoot>
+  // );
 }

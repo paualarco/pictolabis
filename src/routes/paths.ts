@@ -16,8 +16,8 @@ export const PATH_DASHBOARD = {
   root: ROOTS_DASHBOARD,
   playground: path(ROOTS_DASHBOARD, '/playground'),
   chart: path(ROOTS_DASHBOARD, '/chart'),
-  two: path(ROOTS_DASHBOARD, '/history'),
-  three: path(ROOTS_DASHBOARD, '/credits'),
+  history: path(ROOTS_DASHBOARD, '/history'),
+  contact: path(ROOTS_DASHBOARD, '/contact'),
   user: {
     root: path(ROOTS_DASHBOARD, '/user'),
     four: path(ROOTS_DASHBOARD, '/user/four'),

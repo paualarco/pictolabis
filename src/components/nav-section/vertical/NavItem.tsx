@@ -3,11 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, Tooltip, Link, ListItemText } from '@mui/material';
 // locales
 import { useLocales } from '../../../locales';
-// auth
-import RoleBasedGuard from '../../../auth/RoleBasedGuard';
-//
 import Iconify from '../../iconify';
-//
 import { NavItemProps } from '../types';
 import { StyledItem, StyledIcon, StyledDotIcon } from './styles';
 
@@ -95,5 +91,5 @@ export default function NavItem({
     );
   };
 
-  return <RoleBasedGuard roles={roles}> {renderItem()} </RoleBasedGuard>;
+  return renderItem();
 }

@@ -23,34 +23,25 @@ import ScrollToTop from './components/scroll-to-top';
 import { MotionLazyContainer } from './components/animate';
 import { ThemeSettings, SettingsProvider } from './components/settings';
 
-// Check our docs
-// https://docs.minimals.cc/authentication/ts-version
-
-import { AuthProvider } from './auth/JwtContext';
-
-// ----------------------------------------------------------------------
-
 export default function App() {
   return (
-    <AuthProvider>
-      <HelmetProvider>
-        <SettingsProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <MotionLazyContainer>
-              <ThemeProvider>
-                <ThemeSettings>
-                  <ThemeLocalization>
-                    <SnackbarProvider>
-                      <Router />
-                    </SnackbarProvider>
-                  </ThemeLocalization>
-                </ThemeSettings>
-              </ThemeProvider>
-            </MotionLazyContainer>
-          </BrowserRouter>
-        </SettingsProvider>
-      </HelmetProvider>
-    </AuthProvider>
+    <HelmetProvider>
+      <SettingsProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <MotionLazyContainer>
+            <ThemeProvider>
+              <ThemeSettings>
+                <ThemeLocalization>
+                  <SnackbarProvider>
+                    <Router />
+                  </SnackbarProvider>
+                </ThemeLocalization>
+              </ThemeSettings>
+            </ThemeProvider>
+          </MotionLazyContainer>
+        </BrowserRouter>
+      </SettingsProvider>
+    </HelmetProvider>
   );
 }

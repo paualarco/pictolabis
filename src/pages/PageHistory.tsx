@@ -6,21 +6,21 @@ import { useSettingsContext } from '../components/settings';
 
 // ----------------------------------------------------------------------
 
-export default function PageThree() {
+export default function PageHistory() {
   const { themeStretch } = useSettingsContext();
 
   return (
     <>
       <Helmet>
-        <title> Metrics</title>
+        <title> History</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
-          Metrics
+          History
         </Typography>
-
-        <Typography gutterBottom>Coming soon!</Typography>
+        Coming soon!
+        <Typography gutterBottom />
       </Container>
     </>
   );

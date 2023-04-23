@@ -5,8 +5,6 @@ import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem } from '@mui/material';
 // routes
 import { PATH_AUTH } from '../../../routes/paths';
-// auth
-import { useAuthContext } from '../../../auth/useAuthContext';
 // components
 import { CustomAvatar } from '../../../components/custom-avatar';
 import { useSnackbar } from '../../../components/snackbar';
@@ -35,8 +33,6 @@ const OPTIONS = [
 export default function AccountPopover() {
   const navigate = useNavigate();
 
-  const { user, logout } = useAuthContext();
-
   const { enqueueSnackbar } = useSnackbar();
 
   const [openPopover, setOpenPopover] = useState<HTMLElement | null>(null);
@@ -47,17 +43,6 @@ export default function AccountPopover() {
 
   const handleClosePopover = () => {
     setOpenPopover(null);
-  };
-
-  const handleLogout = async () => {
-    try {
-      logout();
-      navigate(PATH_AUTH.login, { replace: true });
-      handleClosePopover();
-    } catch (error) {
-      console.error(error);
-      enqueueSnackbar('Unable to logout!', { variant: 'error' });
-    }
   };
 
   const handleClickItem = (path: string) => {
@@ -84,10 +69,10 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
+        {/* <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} /> */}
       </IconButtonAnimate>
 
-      <MenuPopover open={openPopover} onClose={handleClosePopover} sx={{ width: 200, p: 0 }}>
+      {/* <MenuPopover open={openPopover} onClose={handleClosePopover} sx={{ width: 200, p: 0 }}>
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
             {user?.displayName}
@@ -109,11 +94,7 @@ export default function AccountPopover() {
         </Stack>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
-
-        <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
-          Logout
-        </MenuItem>
-      </MenuPopover>
+          </MenuPopover> */}
     </>
   );
 }

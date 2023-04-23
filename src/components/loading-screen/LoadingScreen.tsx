@@ -7,9 +7,6 @@ import { Box, LinearProgress } from '@mui/material';
 import useResponsive from '../../hooks/useResponsive';
 // config
 import { NAV, HEADER } from '../../config-global';
-// auth
-import { useAuthContext } from '../../auth/useAuthContext';
-//
 import Logo from '../logo';
 import ProgressBar from '../progress-bar';
 import { useSettingsContext } from '../settings';
@@ -36,11 +33,9 @@ export default function LoadingScreen() {
 
   const isDesktop = useResponsive('up', 'lg');
 
-  const { isInitialized } = useAuthContext();
-
   const { themeLayout } = useSettingsContext();
 
-  const isDashboard = isInitialized && pathname.includes('/dashboard') && isDesktop;
+  const isDashboard = pathname.includes('/dashboard') && isDesktop;
 
   const size =
     (themeLayout === 'mini' && NAV.W_DASHBOARD_MINI) ||
