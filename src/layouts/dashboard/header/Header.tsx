@@ -5,7 +5,6 @@ import { Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedinIcon from '@mui/icons-material/LinkedIn';
 
-import GitHubIcon from '@mui/icons-material/GitHub';
 import { bgBlur } from '../../../utils/cssStyles';
 // hooks
 import useOffSetTop from '../../../hooks/useOffSetTop';
@@ -63,12 +62,8 @@ export default function Header({ onOpenNav }: Props) {
       >
         <LanguagePopover />
 
-        <IconButton
-          aria-label="github"
-          href="https://github.com/pictolabis/pictolabis"
-          sx={{ color: 'black' }}
-        >
-          <GitHubIcon fontSize="medium" />
+        <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/big-data-developer/">
+          <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
         </IconButton>
 
         <IconButton

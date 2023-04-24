@@ -89,7 +89,7 @@ export default function PageContact() {
 
                   <IconButton
                     aria-label="github"
-                    href="https://github.com/melics/pictolabis"
+                    href="https://github.com/paualarco"
                     sx={{ color: 'black' }}
                   >
                     <GitHubIcon fontSize="large" />
