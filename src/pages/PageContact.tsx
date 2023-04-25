@@ -54,17 +54,30 @@ export default function PageContact() {
       </Container>
       <Container maxWidth={themeStretch ? false : 'md'} sx={{ marginTop: '20px' }}>
         <Typography gutterBottom>Hey there! Thanks for checking out this site. 🤗</Typography>
-        <Typography gutterBottom>
-          My name is Pau Alarcón, a passionate Software Engineer and lately I have been having a
-          blast creating digital art with the power of AI.
+        <Typography variant="h6" gutterBottom>
+          About me
         </Typography>
         <Typography gutterBottom>
-          The motivation behind this project was to building a cool web app that can help artists to
-          get inspired on writing original prompts.
+          My name is Pau Alarcón, a passionate Software Engineer.
         </Typography>
         <Typography gutterBottom>
-          All feedback is much appreciated, get in touch with me and drop a ⭐ on github if you
-          liked it!
+          I drink too much coffee but manage to follow a decent healty lifestyle. I like cold
+          showers, exercising daily if possible and breaking free on the mountains on weekends with
+          my two puppies keeps me happy.
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          Motivation
+        </Typography>
+        <Typography gutterBottom>
+          Lately I have been having a blast creating digital art with the power of AI. Which
+          motivated me to building an app to help myself and others to come up with original
+          prompts. While also practicing my frontend skills.
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          Feedback
+        </Typography>
+        <Typography gutterBottom>
+          All the feedback is much appreciated, please keep in touch! 📩
         </Typography>
 
         <Container maxWidth="xl">
@@ -110,7 +123,7 @@ export default function PageContact() {
                   >
                     <Avatar
                       alt="Pau Alarcón"
-                      src="/assets/images/contact/me-pixar-syle.png"
+                      src="/assets/images/contact/me.jpeg"
                       sx={{ width: 100, height: 100 }}
                     />
                   </StyledBadge>

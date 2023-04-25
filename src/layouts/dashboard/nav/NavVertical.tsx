@@ -55,7 +55,30 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         }}
         direction="row"
       >
-        <Logo />
+        <Box
+          component="img"
+          // sx={{
+          //   height: 20,
+          //   width: 350,
+          //   maxHeight: { xs: 233, md: 167 },
+          //   maxWidth: { xs: 350, md: 250 },
+          // }}
+          alt="pictolabis"
+          src="/assets/icons/navbar/pictolabis.png"
+        />
+        {/* <Box
+          component="img"
+          sx={{
+            marginLeft: 2,
+            height: 50,
+            width: 40,
+            maxHeight: { xs: 233, md: 167 },
+            maxWidth: { xs: 350, md: 250 },
+          }}
+          alt="pictolabis logo"
+          src="/assets/icons/navbar/logo.png"
+        /> */}
+        {/* <Logo /> */}
         {/* <NavAccount /> */}
       </Stack>
 
@@ -73,19 +96,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           display: 'block',
           textAlign: 'center',
         }}
-      >
-        <Box
-          component="img"
-          // sx={{
-          //   height: 20,
-          //   width: 350,
-          //   maxHeight: { xs: 233, md: 167 },
-          //   maxWidth: { xs: 350, md: 250 },
-          // }}
-          alt="pictolabis"
-          src="/assets/icons/navbar/pictolabis.png"
-        />
-      </Stack>
+      />
 
       {/* <NavDocs /> */}
     </Scrollbar>

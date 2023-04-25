@@ -39,7 +39,31 @@ export default function NavMini() {
           ...hideScrollbarX,
         }}
       >
-        <Logo sx={{ mx: 'auto', my: 2 }} />
+        <Stack
+          spacing={3}
+          sx={{
+            pt: 3,
+            pb: 2,
+            px: 2.5,
+            flexShrink: 0,
+          }}
+          direction="row"
+        >
+          <Box
+            component="img"
+            sx={{
+              marginTop: 1,
+              marginLeft: 1,
+              height: 45,
+              width: 36,
+              maxHeight: { xs: 233, md: 167 },
+              maxWidth: { xs: 350, md: 250 },
+            }}
+            alt="pictolabis logo"
+            src="/assets/icons/navbar/logo.png"
+          />
+        </Stack>
+        {/* <Logo sx={{ mx: 'auto', my: 2 }} /> */}
 
         <NavSectionMini data={navConfig} />
       </Stack>

@@ -25,7 +25,7 @@ const navConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'Menu',
+    subheader: '',
     items: [
       { title: 'Intro', path: PATH_DASHBOARD.intro, icon: ICONS.label },
       { title: 'Playground', path: PATH_DASHBOARD.playground, icon: ICONS.playground },
