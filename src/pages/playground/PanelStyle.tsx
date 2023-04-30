@@ -7,13 +7,16 @@ import { useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import PanelGridCards from 'src/components/card/PanelGridCards';
 import { themes, techniques, tone } from 'src/assets/data/cards/style';
-import { CardReference } from 'src/types/CardDetails';
+import { CardReference } from 'src/types/CardReference';
+import { groupColor } from 'src/types/Group';
 
 export default function PanelStyle() {
   const [tabValue, setTabValue] = useState('adjectives');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
+
+  const tabColour = groupColor.get('style');
 
   const referenceToCard = (ref: CardReference) => ({
     reference: ref,
@@ -36,7 +39,14 @@ export default function PanelStyle() {
       //  },
       // }}
     >
-      <TabList onChange={handleTabChange}>
+      <TabList
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: tabColour,
+          },
+        }}
+        onChange={handleTabChange}
+      >
         <Tab label="Theme" value="theme" />
         <Tab label="Technique" value="technique" />
         <Tab label="Tone" value="tone" />

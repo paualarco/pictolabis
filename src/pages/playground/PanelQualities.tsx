@@ -19,6 +19,7 @@ import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
 import { TabContext, TabList } from '@mui/lab';
+import { groupColor } from 'src/types/Group';
 // ----------------------------------------------------------------------
 
 export default function PanelQualities() {
@@ -29,6 +30,9 @@ export default function PanelQualities() {
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
+
+  const tabColour = groupColor.get('qualities');
+
   return (
     <TabContext
       value={tabValue}
@@ -43,7 +47,14 @@ export default function PanelQualities() {
       //  },
       // }}
     >
-      <TabList onChange={handleTabChange}>
+      <TabList
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: tabColour,
+          },
+        }}
+        onChange={handleTabChange}
+      >
         <Tab label="Adjectives" value="adjectives" />
         <Tab label="Colour" value="colour" />
         <Tab label="Feelings" value="feelings" />

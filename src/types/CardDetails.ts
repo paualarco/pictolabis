@@ -1,8 +1,4 @@
-export type CardReference = {
-  id: string;
-  img: string;
-  title: string;
-};
+import { CardReference } from './CardReference';
 
 export type CardDetails = {
   reference: CardReference;

@@ -40,11 +40,9 @@ export default function PageWelcome() {
 
   const titleWhyPictolabis = "Why 'Pictolabis'?";
 
-  const obliquePicto = <Typography sx={{ fontStyle: 'oblique' }}>Picto</Typography>;
-
-  const paragraph3_1 = `A composition between ${obliquePicto} which is derived from picture or image, together with 'lab' which is derived from laboratory, together as a 'Picto Laboratory'.`;
+  const paragraph3_1 = `A composition between 'picto' which is derived from picture and 'lab' which derives from laboratory, together forming a 'picto laboratory'.`;
   const paragraph3_2 =
-    "On the other hand, it also draws a similarity to 'Piscolabis', a term that comes from Spain, that means a light snack or appetizer. Thus, 'Pictolabis' could be interpreted as a tool or platform that provides bite-sized, appetizing prompts for generating images or pictures.";
+    "On the other hand, it also draws a similarity to 'piscolabis' a term that comes from Spain and refers to a light snack or appetizer. Thus, 'Pictolabis' could be interpreted as a tool that provides bit-sized, appetizing prompts for generating images or pictures.";
 
   const paragraphWhoIsItFor =
     'Whether you are a professional artist or just someone who loves to create, our web app is here to support your creative process by generating prompts that will ignite your imagination.🔥';
@@ -80,7 +78,7 @@ export default function PageWelcome() {
         </Typography>
 
         <Typography gutterBottom variant="h6" marginTop={2}>
-          What am I?
+          Who am I?
         </Typography>
 
         <Typography gutterBottom>
@@ -104,9 +102,9 @@ export default function PageWelcome() {
         <Typography>It is a creative and unique name for two 2 reasons:</Typography>
 
         <Container maxWidth="md">
-          <Typography>1.- {paragraph3_1}</Typography>
+          <Typography>1. {paragraph3_1}</Typography>
 
-          <Typography>2.- {paragraph3_2}</Typography>
+          <Typography>2. {paragraph3_2}</Typography>
         </Container>
 
         <Typography gutterBottom variant="h6" marginTop={2}>

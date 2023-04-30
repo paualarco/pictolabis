@@ -18,16 +18,20 @@ import { useState } from 'react';
 import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import { useSnackbar } from 'src/components/snackbar';
 import { TabContext, TabList } from '@mui/lab';
+import { groupColor } from 'src/types/Group';
 // ----------------------------------------------------------------------
 
 export default function PanelView() {
   const { copy } = useCopyToClipboard();
   const { enqueueSnackbar } = useSnackbar();
 
-  const [tabValue, setTabValue] = useState('adjectives');
+  const [tabValue, setTabValue] = useState('composition');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
+
+  const tabColour = groupColor.get('view');
+
   return (
     <TabContext
       value={tabValue}
@@ -42,7 +46,14 @@ export default function PanelView() {
       //  },
       // }}
     >
-      <TabList onChange={handleTabChange}>
+      <TabList
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: tabColour,
+          },
+        }}
+        onChange={handleTabChange}
+      >
         <Tab label="Composition" value="composition" />
         <Tab label="Shapes and geometry" value="shapes and geometry" />
         <Tab label="Spatial Relationships" value="spatial-relationships" />

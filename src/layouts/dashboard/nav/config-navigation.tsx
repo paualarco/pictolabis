@@ -27,7 +27,7 @@ const navConfig = [
   {
     subheader: '',
     items: [
-      { title: 'Intro', path: PATH_DASHBOARD.intro, icon: ICONS.label },
+      { title: 'Welcome', path: PATH_DASHBOARD.welcome, icon: ICONS.label },
       { title: 'Playground', path: PATH_DASHBOARD.playground, icon: ICONS.playground },
       { title: 'Categorization', path: PATH_DASHBOARD.chart, icon: ICONS.chart },
       { title: 'History', path: PATH_DASHBOARD.history, icon: ICONS.file },

@@ -41,6 +41,10 @@ export default function PageContact() {
       },
     },
   }));
+
+  const aboutMe =
+    "My name is Pau Alarcón, a passionate Software Engineer - I'm a self-proclaimed coffeeaholic - I love taking cold showers and practice exercise daily if possible. But when it's time to relax, you'll find me up in the mountains with my two adorable pups, exploring all that nature has to offer.";
+
   return (
     <>
       <Helmet>
@@ -57,14 +61,8 @@ export default function PageContact() {
         <Typography variant="h6" gutterBottom>
           About me
         </Typography>
-        <Typography gutterBottom>
-          My name is Pau Alarcón, a passionate Software Engineer.
-        </Typography>
-        <Typography gutterBottom>
-          I drink too much coffee but manage to follow a decent healty lifestyle. I like cold
-          showers, exercising daily if possible and breaking free on the mountains on weekends with
-          my two puppies keeps me happy.
-        </Typography>
+        <Typography gutterBottom />
+        <Typography gutterBottom>{aboutMe}</Typography>
         <Typography variant="h6" gutterBottom>
           Motivation
         </Typography>
@@ -93,10 +91,7 @@ export default function PageContact() {
                     <TwitterIcon fontSize="large" />
                   </IconButton>
 
-                  <IconButton
-                    aria-label="linkedin"
-                    href="https://www.linkedin.com/in/big-data-developer/"
-                  >
+                  <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paualarcon/">
                     <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
                   </IconButton>
 

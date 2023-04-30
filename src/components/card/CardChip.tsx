@@ -18,11 +18,17 @@ import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 export type PromptCardProps = {
   title: string;
   img: string | undefined;
-  isLiked?: boolean;
+  isStared?: boolean;
   isAdded?: boolean;
   isPinned?: boolean;
 };
-export default function PromptCard({ title, img, isLiked, isPinned, isAdded }: PromptCardProps) {
+export default function PromptCard({
+  title,
+  img,
+  isStared: isLiked,
+  isPinned,
+  isAdded,
+}: PromptCardProps) {
   const addColor = isAdded ? 'disabled' : 'primary';
   const pinnedColor = isPinned ? 'disabled' : 'secondary';
   const fallbackImg = '/assets/images/cards/default.jpg';

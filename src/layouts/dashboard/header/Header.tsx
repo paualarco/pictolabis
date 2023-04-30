@@ -62,7 +62,7 @@ export default function Header({ onOpenNav }: Props) {
       >
         <LanguagePopover />
 
-        <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/big-data-developer/">
+        <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paualarcon/">
           <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
         </IconButton>
 

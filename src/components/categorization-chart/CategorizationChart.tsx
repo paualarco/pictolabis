@@ -9,7 +9,7 @@ import { SimpleNode, StandardNode, GroupNode } from './node';
 
 // ----------------------------------------------------------------------
 
-export default function OrganizationalChart({
+export default function CategorizationChart({
   data,
   variant = 'simple',
   sx,

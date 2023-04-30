@@ -1,6 +1,8 @@
 // @mui
-import { Stack, Box } from '@mui/material';
+import { Stack, Box, Button, Tooltip, Typography, ListItemText } from '@mui/material';
 // config
+import LocalCafeIcon from '@mui/icons-material/LocalCafe';
+import { StyledIcon, StyledItem } from 'src/components/nav-section/mini/styles';
 import { NAV } from '../../../config-global';
 // utils
 import { hideScrollbarX } from '../../../utils/cssStyles';
@@ -66,6 +68,39 @@ export default function NavMini() {
         {/* <Logo sx={{ mx: 'auto', my: 2 }} /> */}
 
         <NavSectionMini data={navConfig} />
+
+        <Box sx={{ flexGrow: 1 }} />
+        <Stack
+          spacing={3}
+          sx={{
+            pb: 3,
+            mt: 10,
+            width: 1,
+            display: 'block',
+            textAlign: 'center',
+          }}
+        >
+          <Tooltip title="Buy me a coffee">
+            <Button
+              size="small"
+              sx={{
+                // marginTop: '100%',
+
+                backgroundColor: '#ff444c',
+                '&:hover': {
+                  backgroundColor: '#d01424',
+                },
+                textTransform: 'none',
+              }}
+              variant="contained"
+              href="https://www.patreon.com/bePatron?u=34355546"
+            >
+              <Stack direction="column">
+                <LocalCafeIcon fontSize="small" />
+              </Stack>
+            </Button>
+          </Tooltip>
+        </Stack>
       </Stack>
     </Box>
   );

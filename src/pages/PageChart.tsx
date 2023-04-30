@@ -16,7 +16,7 @@ import { useState } from 'react';
 import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
-import OrganizationalChart from 'src/components/organizational-chart';
+import CategorizationChart from 'src/components/categorization-chart';
 import Block from 'src/components/settings/drawer/Block';
 // ----------------------------------------------------------------------
 
@@ -25,18 +25,6 @@ export default function PageChart() {
   const { enqueueSnackbar } = useSnackbar();
 
   const [value, setValue] = useState('');
-
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value);
-  };
-
-  const onCopy = (text: string) => {
-    if (text) {
-      enqueueSnackbar('Copied!');
-
-      copy(text);
-    }
-  };
 
   const img = `https://api-dev-minimal-v4.vercel.app/assets/images/covers/cover_1.jpg`;
 
@@ -51,57 +39,6 @@ export default function PageChart() {
     ...createData('Image', 'root', null, img),
     children: [
       {
-        ...createData('category', 'marketing', null, null),
-        children: [
-          {
-            ...createData('portrait', 'marketing', 'lead', '📙'),
-            children: [
-              {
-                ...createData('adjectives', 'portrait', null, img),
-                children: null,
-              },
-              {
-                ...createData('motion', 'portrait', null, img),
-                children: null,
-              },
-              {
-                ...createData('subject', 'portrait', null, img),
-                children: null,
-              },
-            ],
-          },
-          {
-            ...createData('landscape', 'marketing', 'senior', img),
-            children: [
-              {
-                ...createData('weather', 'landscape', null, img),
-                children: null,
-              },
-              {
-                ...createData('weather', 'landscape', null, img),
-                children: null,
-              },
-              {
-                ...createData('outdoor', 'landscape', null, img),
-                children: null,
-              },
-            ],
-          },
-          {
-            ...createData('shapes & geometry', 'category', 'senior', img),
-            children: null,
-          },
-          {
-            ...createData('contextual information', 'category', 'senior', img),
-            children: null,
-          },
-          {
-            ...createData('spatial relationships', 'category', 'senior', img),
-            children: null,
-          },
-        ],
-      },
-      {
         ...createData('style', 'development', null, null),
         children: [
           {
@@ -109,36 +46,97 @@ export default function PageChart() {
             children: null,
           },
           {
-            ...createData('ligthing and weather', 'style', 'lead', img),
+            ...createData('technique', 'style', 'lead', img),
             children: null,
           },
           {
-            ...createData('frame', 'style', 'lead', img),
+            ...createData('tone', 'style', 'lead', img),
             children: null,
           },
           {
-            ...createData('visual presentation', 'style', 'lead', img),
-            children: null,
-          },
-          {
-            ...createData('tone', 'style', 'lead', null),
+            ...createData('contextual information', 'style', 'lead', null),
             children: null,
           },
         ],
       },
       {
-        ...createData('colour & texture', 'color & texture', null, null),
+        ...createData('qualities', 'qualities', null, null),
         children: [
           {
-            ...createData('material', 'color & texture', 'lead', img),
+            ...createData('adjectives', 'qualities', 'lead', img),
             children: null,
           },
           {
-            ...createData('texture', 'color & texture', 'support', img),
+            ...createData('colour', 'qualities', 'support', img),
             children: null,
           },
           {
-            ...createData('colour palette', 'color & texture', 'content', img),
+            ...createData('feelings', 'qualities', 'content', img),
+            children: null,
+          },
+          {
+            ...createData('texture', 'qualities', 'content', img),
+            children: null,
+          },
+          {
+            ...createData('motion', 'qualities', 'content', img),
+            children: null,
+          },
+          {
+            ...createData('lighting', 'qualities', 'content', img),
+            children: null,
+          },
+        ],
+      },
+      {
+        ...createData('subject', 'marketing', null, null),
+        children: [
+          {
+            ...createData('people', 'marketing', 'lead', '📙'),
+            children: null,
+          },
+          {
+            ...createData('animals', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('nature', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('food', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('clothing', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('weather', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('creatures', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('mithology', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('elements', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('films', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('architecture', 'marketing', 'senior', img),
+            children: null,
+          },
+          {
+            ...createData('space', 'marketing', 'senior', img),
             children: null,
           },
         ],
@@ -231,7 +229,7 @@ export default function PageChart() {
 
       <Container maxWidth="xl">
         <Block title="Chart" sx={{ overflow: 'auto' }}>
-          <OrganizationalChart data={DATA} variant="simple" lineHeight="64px" />
+          <CategorizationChart data={DATA} variant="group" lineHeight="64px" />
         </Block>
       </Container>
     </>

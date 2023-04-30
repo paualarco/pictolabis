@@ -1,20 +1,18 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 // @mui
-import { Box, Stack, Drawer, Typography } from '@mui/material';
+import { Box, Stack, Drawer, Typography, Button } from '@mui/material';
 // hooks
+import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import useResponsive from '../../../hooks/useResponsive';
 // config
 import { NAV } from '../../../config-global';
 // components
-import Logo from '../../../components/logo';
 import Scrollbar from '../../../components/scrollbar';
 import { NavSectionVertical } from '../../../components/nav-section';
 //
 import navConfig from './config-navigation';
-import NavDocs from './NavDocs';
 import NavToggleButton from './NavToggleButton';
-
 // ----------------------------------------------------------------------
 
 type Props = {
@@ -66,6 +64,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           alt="pictolabis"
           src="/assets/icons/navbar/pictolabis.png"
         />
+
         {/* <Box
           component="img"
           sx={{
@@ -81,11 +80,9 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         {/* <Logo /> */}
         {/* <NavAccount /> */}
       </Stack>
-
       <NavSectionVertical data={navConfig} />
 
       <Box sx={{ flexGrow: 1 }} />
-
       <Stack
         spacing={3}
         sx={{
@@ -96,8 +93,31 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           display: 'block',
           textAlign: 'center',
         }}
-      />
-
+      >
+        <Button
+          size="small"
+          sx={{
+            backgroundColor: '#ff444c',
+            '&:hover': {
+              backgroundColor: '#d01424',
+            },
+            textTransform: 'none',
+          }}
+          variant="contained"
+          href="https://www.patreon.com/bePatron?u=34355546"
+          endIcon={
+            <LocalCafeIcon />
+            // <Image
+            //   disabledEffect
+            //   src="/assets/icons/navbar/Digital-Patreon-Logo_White.png"
+            //   alt="patreon"
+            //   sx={{ height: 25, width: 25 }}
+            // />
+          }
+        >
+          Buy me a coffee
+        </Button>
+      </Stack>
       {/* <NavDocs /> */}
     </Scrollbar>
   );

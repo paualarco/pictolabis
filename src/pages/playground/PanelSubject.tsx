@@ -19,16 +19,16 @@ import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
 import { TabContext, TabList } from '@mui/lab';
+import { Group, GroupColor, groupColor } from 'src/types/Group';
+
 // ----------------------------------------------------------------------
 
 export default function PanelSubject() {
-  const { copy } = useCopyToClipboard();
-  const { enqueueSnackbar } = useSnackbar();
-
   const [tabValue, setTabValue] = useState('adjectives');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
+  const tabColour = groupColor.get('subject');
   return (
     <TabContext
       value={tabValue}
@@ -43,7 +43,14 @@ export default function PanelSubject() {
       //  },
       // }}
     >
-      <TabList onChange={handleTabChange}>
+      <TabList
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: tabColour,
+          },
+        }}
+        onChange={handleTabChange}
+      >
         <Tab label="People" value="people" />
         <Tab label="Animals" value="animals" />
         <Tab label="Nature" value="nature" />
