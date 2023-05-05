@@ -18,17 +18,24 @@ import { useState } from 'react';
 import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
-import { TabContext, TabList } from '@mui/lab';
+import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Group, GroupColor, groupColor } from 'src/types/Group';
+import KeywordCard from 'src/components/card/KeywordCard';
+import { CardsActionProps } from '../types/CardActionProps';
 
 // ----------------------------------------------------------------------
 
-export default function PanelSubject() {
-  const [tabValue, setTabValue] = useState('adjectives');
+export default function PanelSubject({
+  handleAddKeyword,
+  handleRemoveKeyword,
+  findKeywordOccurences,
+}: CardsActionProps) {
+  const [tabValue, setTabValue] = useState('people');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
-  const tabColour = groupColor.get('subject');
+  const group = 'subject';
+  const tabColour = groupColor.get(group);
   return (
     <TabContext
       value={tabValue}
@@ -64,6 +71,20 @@ export default function PanelSubject() {
         <Tab label="Architecture" value="architecture" />
         <Tab label="Space" value="space" />
       </TabList>
+      <TabPanel value="people">
+        <KeywordCard
+          reference={{
+            img: '/assets/images/cards/op.png',
+            title: 'Scientist',
+            group,
+            id: 'image-ratio_001',
+          }}
+          isStared
+          occurrences={findKeywordOccurences('image-ratio_001').length}
+          handleAdd={handleAddKeyword}
+          isPinned
+        />
+      </TabPanel>
     </TabContext>
   );
 }

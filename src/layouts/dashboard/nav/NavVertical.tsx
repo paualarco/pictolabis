@@ -104,7 +104,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
             textTransform: 'none',
           }}
           variant="contained"
-          href="https://www.patreon.com/bePatron?u=34355546"
+          href="https://www.patreon.com/paualarco"
           endIcon={
             <LocalCafeIcon />
             // <Image

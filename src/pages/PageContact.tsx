@@ -69,7 +69,7 @@ export default function PageContact() {
         <Typography gutterBottom>
           Lately I have been having a blast creating digital art with the power of AI. Which
           motivated me to building an app to help myself and others to come up with original
-          prompts. While also practicing my frontend skills.
+          prompts. While also practicing my frontend development skills.
         </Typography>
         <Typography variant="h6" gutterBottom>
           Feedback
@@ -84,6 +84,7 @@ export default function PageContact() {
               <Stack spacing={1} direction="column" alignContent="center">
                 <Stack spacing={1} direction="row" alignContent="center">
                   <IconButton
+                    target="_blank"
                     aria-label="twitter"
                     href="https://twitter.com/paualarco"
                     sx={{ color: '#33B2FF' }}
@@ -91,11 +92,16 @@ export default function PageContact() {
                     <TwitterIcon fontSize="large" />
                   </IconButton>
 
-                  <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paualarcon/">
+                  <IconButton
+                    target="_blank"
+                    aria-label="linkedin"
+                    href="https://www.linkedin.com/in/paualarcon/"
+                  >
                     <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
                   </IconButton>
 
                   <IconButton
+                    target="_blank"
                     aria-label="github"
                     href="https://github.com/paualarco"
                     sx={{ color: 'black' }}
@@ -103,6 +109,7 @@ export default function PageContact() {
                     <GitHubIcon fontSize="large" />
                   </IconButton>
                   <IconButton
+                    target="_blank"
                     aria-label="instagram"
                     href="https://www.instagram.com/paualarco.ai/"
                     sx={{ color: '#FF95FD' }}

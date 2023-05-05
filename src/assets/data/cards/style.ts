@@ -1,6 +1,6 @@
-import { CardReference } from 'src/types/CardReference';
+import { KeywordReference } from 'src/types/KeywordReference';
 
-export const random: CardReference[] = [
+export const random: KeywordReference[] = [
   { group: 'style', id: 'style_random_001', img: 'op.png', title: 'Scientist' },
   {
     group: 'style',
@@ -35,7 +35,7 @@ export const random: CardReference[] = [
   { group: 'style', id: 'style_random_001', img: 'style/sticker.png', title: 'Sticker' },
 ];
 
-export const tone: CardReference[] = [
+export const tone: KeywordReference[] = [
   { group: 'style', id: 'style_tone_001', img: 'op.png', title: 'Dreamy' },
   { group: 'style', id: 'style_tone_002', img: 'style/', title: 'Floating Snowlfakes' },
   { group: 'style', id: 'style_tone_003', img: 'style/', title: 'Floating lights' },
@@ -91,7 +91,7 @@ export const tone: CardReference[] = [
   { group: 'style', id: 'style_tone_051', img: 'style/', title: 'Soft' },
 ];
 
-export const techniques: CardReference[] = [
+export const techniques: KeywordReference[] = [
   { group: 'style', id: 'style_technique_001', img: 'op.png', title: 'Pencil drawing' },
   { group: 'style', id: 'style_technique_002', img: 'op.png', title: 'Pen drawing' },
   { group: 'style', id: 'style_technique_003', img: 'op.png', title: 'Ink Drawing' },
@@ -103,7 +103,7 @@ export const techniques: CardReference[] = [
   { group: 'style', id: 'style_technique_009', img: 'op.png', title: 'Grafiti' },
 ];
 
-export const themes: CardReference[] = [
+export const themes: KeywordReference[] = [
   { group: 'style', id: 'style_theme_001', img: 'op.png', title: 'Isometric' },
   {
     group: 'style',

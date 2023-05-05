@@ -9,23 +9,27 @@ export type Group =
   | 'stared';
 
 export type GroupColor =
-  | '#7635dc' // purple
-  | '#62CDFF' // blue light
+  | '#D899FF' // purple
+  | '#078DEE' // blue light
   | '#FFE9A0' // yellow
   | '#fda92d' // orange
   | '#89375F' // granade
   | '#27E1C1' // turquese
-  | '#FFACAC' // pink
-  | '#ADE792'
-  | '#E0144C';
+  | '#7635dc' // pink
+  | '#e075b5' // lightorgange
+  | '#B99869' // orange
+  | '#ADE792' // green
+  | '#FF3030' // red
+  | '#FBFFA1' // yellow
+  | '#228454'; // darkblue
 
 export const groupColor: Map<Group, GroupColor> = new Map<Group, GroupColor>([
   ['style', '#7635dc'],
-  ['view', '#ADE792'],
-  ['subject', '#27E1C1'],
-  ['qualities', '#FFACAC'],
+  ['view', '#fda92d'],
+  ['subject', '#228454'],
+  ['qualities', '#078DEE'],
   ['shooting', '#89375F'],
-  ['image-ratio', '#E0144C'],
-  ['artist', '#62CDFF'],
+  ['image-ratio', '#FF3030'],
+  ['artist', '#e075b5'],
   ['stared', '#FFE9A0'],
 ]);

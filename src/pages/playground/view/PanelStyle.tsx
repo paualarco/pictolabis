@@ -5,20 +5,26 @@ import { Tab } from '@mui/material';
 import { useState } from 'react';
 
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import PanelGridCards from 'src/components/card/PanelGridCards';
+// eslint-disable-next-line import/no-cycle
+import PanelGridCards from 'src/components/card/GridKeywordCards';
 import { themes, techniques, tone } from 'src/assets/data/cards/style';
-import { CardReference } from 'src/types/CardReference';
+import { KeywordReference } from 'src/types/KeywordReference';
 import { groupColor } from 'src/types/Group';
+import { CardsActionProps } from '../types/CardActionProps';
 
-export default function PanelStyle() {
-  const [tabValue, setTabValue] = useState('adjectives');
+export default function PanelStyle({
+  handleAddKeyword,
+  handleRemoveKeyword,
+  findKeywordOccurences,
+}: CardsActionProps) {
+  const [tabValue, setTabValue] = useState('theme');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
 
   const tabColour = groupColor.get('style');
 
-  const referenceToCard = (ref: CardReference) => ({
+  const referenceToCard = (ref: KeywordReference) => ({
     reference: ref,
     isLiked: false,
     isAdded: false,
@@ -53,16 +59,36 @@ export default function PanelStyle() {
         <Tab label="Contextual Information" value="contextual-information" />
       </TabList>
       <TabPanel value="theme">
-        <PanelGridCards cards={themes.map(referenceToCard)} />
+        <PanelGridCards
+          cards={themes.map(referenceToCard)}
+          handleAddKeyword={handleAddKeyword}
+          handleRemoveKeyword={handleRemoveKeyword}
+          findKeywordOccurences={findKeywordOccurences}
+        />
       </TabPanel>
       <TabPanel value="technique">
-        <PanelGridCards cards={techniques.map(referenceToCard)} />
+        <PanelGridCards
+          cards={techniques.map(referenceToCard)}
+          handleAddKeyword={handleAddKeyword}
+          handleRemoveKeyword={handleRemoveKeyword}
+          findKeywordOccurences={findKeywordOccurences}
+        />
       </TabPanel>
       <TabPanel value="tone">
-        <PanelGridCards cards={tone.map(referenceToCard)} />
+        <PanelGridCards
+          cards={tone.map(referenceToCard)}
+          handleAddKeyword={handleAddKeyword}
+          handleRemoveKeyword={handleRemoveKeyword}
+          findKeywordOccurences={findKeywordOccurences}
+        />
       </TabPanel>
       <TabPanel value="contextual-information">
-        <PanelGridCards cards={techniques.map(referenceToCard)} />
+        <PanelGridCards
+          cards={techniques.map(referenceToCard)}
+          handleAddKeyword={handleAddKeyword}
+          handleRemoveKeyword={handleRemoveKeyword}
+          findKeywordOccurences={findKeywordOccurences}
+        />
       </TabPanel>
     </TabContext>
   );

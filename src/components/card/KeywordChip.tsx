@@ -14,46 +14,34 @@ import ArrowBackIos from '@mui/icons-material/ArrowBackIos';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
+import { Group, groupColor } from 'src/types/Group';
+import { KeywordReference } from 'src/types/KeywordReference';
+import CancelIcon from '@mui/icons-material/Cancel';
 
-export type PromptCardProps = {
-  title: string;
-  img: string | undefined;
+export type KeywordChipProps = {
+  reference: KeywordReference;
   isStared?: boolean;
-  isAdded?: boolean;
   isPinned?: boolean;
 };
-export default function PromptCard({
-  title,
-  img,
-  isStared: isLiked,
-  isPinned,
-  isAdded,
-}: PromptCardProps) {
-  const addColor = isAdded ? 'disabled' : 'primary';
-  const pinnedColor = isPinned ? 'disabled' : 'secondary';
-  const fallbackImg = '/assets/images/cards/default.jpg';
-
+export default function KeywordChip({ reference, isStared, isPinned }: KeywordChipProps) {
   const handleDelete = () => {
     console.info('You clicked the delete icon.');
   };
 
+  const color = groupColor.get(reference.group);
   return (
     <Chip
-      color="default"
+      sx={{ backgroundColor: color, color: 'white', height: 25, m: 0.1 }}
       size="medium"
-      deleteIcon={
-        <IconButton>
-          <ArrowForwardIos fontSize="small" />
-        </IconButton>
-      }
+      variant="outlined"
+      deleteIcon={<CancelIcon sx={{ height: 19 }} />}
       onDelete={handleDelete}
-      clickable
-      label="Clickable "
-      icon={
-        <IconButton>
-          <ArrowBackIos fontSize="small" />
-        </IconButton>
-      }
+      label={reference.title}
+      // icon={
+      //   <IconButton>
+      //     <ArrowBackIos fontSize="small" />
+      //   </IconButton>
+      // }
     />
   );
 }

@@ -1,6 +1,6 @@
-import { CardReference } from 'src/types/CardReference';
+import { KeywordReference } from 'src/types/KeywordReference';
 
-export const motion: CardReference[] = [
+export const motion: KeywordReference[] = [
   { group: 'qualities', id: 'qualities_motion_001', img: 'op.png', title: 'Mid-stride' },
   { group: 'qualities', id: 'qualities_motion_002', img: 'style/', title: 'Diving' },
   { group: 'qualities', id: 'qualities_motion_003', img: 'style/', title: 'Diving deep' },

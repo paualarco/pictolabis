@@ -16,21 +16,29 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
+import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
-import { TabContext, TabList } from '@mui/lab';
+import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { groupColor } from 'src/types/Group';
+import KeywordCard from 'src/components/card/KeywordCard';
+import { CardsActionProps } from '../types/CardActionProps';
 // ----------------------------------------------------------------------
 
-export default function PanelView() {
+export default function PanelQualities({
+  handleAddKeyword,
+  handleRemoveKeyword,
+  findKeywordOccurences,
+}: CardsActionProps) {
   const { copy } = useCopyToClipboard();
   const { enqueueSnackbar } = useSnackbar();
 
-  const [tabValue, setTabValue] = useState('composition');
+  const [tabValue, setTabValue] = useState('adjectives');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
 
-  const tabColour = groupColor.get('view');
+  const group = 'qualities';
+  const tabColour = groupColor.get(group);
 
   return (
     <TabContext
@@ -54,11 +62,28 @@ export default function PanelView() {
         }}
         onChange={handleTabChange}
       >
-        <Tab label="Composition" value="composition" />
-        <Tab label="Shapes and geometry" value="shapes and geometry" />
-        <Tab label="Spatial Relationships" value="spatial-relationships" />
-        <Tab label="Visual Presentation" value="visual-presentation" />
+        <Tab label="Adjectives" value="adjectives" />
+        <Tab label="Colour" value="colour" />
+        <Tab label="Feelings" value="feelings" />
+        <Tab label="Texture" value="texture" />
+        <Tab label="Motion" value="motion" />
+        <Tab label="Lighting" value="lighting" />
       </TabList>
+      <Tab label="Films" value="films" />
+      <TabPanel value="adjectives">
+        <KeywordCard
+          reference={{
+            img: '/assets/images/cards/op.png',
+            title: 'Scientist',
+            group,
+            id: 'image-ratio_001',
+          }}
+          isStared
+          occurrences={findKeywordOccurences('image-ratio_001').length}
+          handleAdd={handleAddKeyword}
+          isPinned
+        />
+      </TabPanel>
     </TabContext>
   );
 }

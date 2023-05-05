@@ -1,6 +1,6 @@
 import { Group } from './Group';
 
-export interface CardReference {
+export interface KeywordReference {
   group: Group;
   img: string;
   title: string;

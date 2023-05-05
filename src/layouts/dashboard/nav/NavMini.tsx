@@ -1,5 +1,5 @@
 // @mui
-import { Stack, Box, Button, Tooltip, Typography, ListItemText } from '@mui/material';
+import { Stack, Box, Button, Tooltip, Typography, ListItemText, Link } from '@mui/material';
 // config
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import { StyledIcon, StyledItem } from 'src/components/nav-section/mini/styles';
@@ -82,6 +82,7 @@ export default function NavMini() {
         >
           <Tooltip title="Buy me a coffee">
             <Button
+              target="_blank"
               size="small"
               sx={{
                 // marginTop: '100%',
@@ -93,7 +94,7 @@ export default function NavMini() {
                 textTransform: 'none',
               }}
               variant="contained"
-              href="https://www.patreon.com/bePatron?u=34355546"
+              href="https://www.patreon.com/paualarco"
             >
               <Stack direction="column">
                 <LocalCafeIcon fontSize="small" />
