@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 // @mui
 import { Box, Stack, Drawer, Typography, Button } from '@mui/material';
 // hooks
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
+import { useSettingsContext } from 'src/components/settings';
 import useResponsive from '../../../hooks/useResponsive';
 // config
 import { NAV } from '../../../config-global';
@@ -24,7 +25,15 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');
-
+  const settings = useSettingsContext();
+  const logoPath: string = useMemo(
+    () =>
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      settings.themeMode === 'light'
+        ? '/assets/icons/navbar/pictolabis-long.png'
+        : '/assets/icons/navbar/pictolabis-long-white.png',
+    [settings]
+  );
   useEffect(() => {
     if (openNav) {
       onCloseNav();
@@ -62,7 +71,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           //   maxWidth: { xs: 350, md: 250 },
           // }}
           alt="pictolabis"
-          src="/assets/icons/navbar/pictolabis.png"
+          src={logoPath}
         />
 
         {/* <Box

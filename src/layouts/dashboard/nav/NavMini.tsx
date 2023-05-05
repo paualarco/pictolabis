@@ -3,6 +3,10 @@ import { Stack, Box, Button, Tooltip, Typography, ListItemText, Link } from '@mu
 // config
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import { StyledIcon, StyledItem } from 'src/components/nav-section/mini/styles';
+import useLocalStorage from 'src/hooks/useLocalStorage';
+import { defaultSettings } from 'src/components/settings/config-setting';
+import { useMemo } from 'react';
+import { useSettingsContext } from 'src/components/settings';
 import { NAV } from '../../../config-global';
 // utils
 import { hideScrollbarX } from '../../../utils/cssStyles';
@@ -16,6 +20,15 @@ import NavToggleButton from './NavToggleButton';
 // ----------------------------------------------------------------------
 
 export default function NavMini() {
+  const settings = useSettingsContext();
+  const shortLogoPath: string = useMemo(
+    () =>
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      settings.themeMode === 'light'
+        ? '/assets/icons/navbar/pictolabis-short.png'
+        : '/assets/icons/navbar/pictolabis-short-white.png',
+    [settings]
+  );
   return (
     <Box
       component="nav"
@@ -62,7 +75,7 @@ export default function NavMini() {
               maxWidth: { xs: 350, md: 250 },
             }}
             alt="pictolabis logo"
-            src="/assets/icons/navbar/logo.png"
+            src={shortLogoPath}
           />
         </Stack>
         {/* <Logo sx={{ mx: 'auto', my: 2 }} /> */}
