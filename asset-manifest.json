@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/pictolabis/static/css/main.7ac8159f.css",
+    "main.js": "/pictolabis/static/js/main.033e0435.js",
+    "static/js/705.b34e7701.chunk.js": "/pictolabis/static/js/705.b34e7701.chunk.js",
+    "static/js/355.d38eeea6.chunk.js": "/pictolabis/static/js/355.d38eeea6.chunk.js",
+    "static/js/740.12c5d64c.chunk.js": "/pictolabis/static/js/740.12c5d64c.chunk.js",
+    "static/js/923.bcf91c07.chunk.js": "/pictolabis/static/js/923.bcf91c07.chunk.js",
+    "static/js/848.eda52897.chunk.js": "/pictolabis/static/js/848.eda52897.chunk.js",
+    "static/js/522.c4042c9c.chunk.js": "/pictolabis/static/js/522.c4042c9c.chunk.js",
+    "static/js/71.43d69517.chunk.js": "/pictolabis/static/js/71.43d69517.chunk.js",
+    "static/js/914.040beba8.chunk.js": "/pictolabis/static/js/914.040beba8.chunk.js",
+    "service-worker.js": "/pictolabis/service-worker.js",
+    "index.html": "/pictolabis/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.7ac8159f.css",
+    "static/js/main.033e0435.js"
+  ]
+}
