@@ -107,7 +107,7 @@ export default function NavMini() {
                 textTransform: 'none',
               }}
               variant="contained"
-              href="https://www.patreon.com/paualarco"
+              href="https://www.buymeacoffee.com/paualarcon"
             >
               <Stack direction="column">
                 <LocalCafeIcon fontSize="small" />

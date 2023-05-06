@@ -2,9 +2,13 @@
 import { useTheme } from '@mui/material/styles';
 import { Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 // utils
-import TwitterIcon from '@mui/icons-material/Twitter';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import LinkedinIcon from '@mui/icons-material/LinkedIn';
 
+import useLocalStorage from 'src/hooks/useLocalStorage';
+import { useCallback } from 'react';
+import { SettingsContext } from 'src/components/settings/SettingsContext';
 import { bgBlur } from '../../../utils/cssStyles';
 // hooks
 import useOffSetTop from '../../../hooks/useOffSetTop';
@@ -31,7 +35,7 @@ type Props = {
 export default function Header({ onOpenNav }: Props) {
   const theme = useTheme();
 
-  const { themeLayout } = useSettingsContext();
+  const { themeLayout, themeMode } = useSettingsContext();
 
   const isNavHorizontal = themeLayout === 'horizontal';
 
@@ -40,6 +44,25 @@ export default function Header({ onOpenNav }: Props) {
   const isDesktop = useResponsive('up', 'lg');
 
   const isOffset = useOffSetTop(HEADER.H_DASHBOARD_DESKTOP) && !isNavHorizontal;
+
+  const currentSettings = useSettingsContext();
+
+  // const [settings, setSettings] = useLocalStorage('settings', currentSettings);
+
+  // const mode: string = useMemo(
+  //   () =>
+  //     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  //     settings.themeMode === 'light'
+  //       ? '/assets/icons/navbar/pictolabis-short.png'
+  //       : '/assets/icons/navbar/pictolabis-short-white.png',
+  //   [settings]
+  // );
+
+  // const onToggleMode = useCallback(() => {
+  //   const mode = settings.themeMode === 'light' ? 'dark' : 'light';
+  //   console.log(`changing mode to ${mode}`);
+  //   setSettings({ ...settings, mode });
+  // }, [setSettings, settings]);
 
   const renderContent = (
     <>
@@ -60,6 +83,13 @@ export default function Header({ onOpenNav }: Props) {
         justifyContent="flex-end"
         spacing={{ xs: 0.5, sm: 1.5 }}
       >
+        <IconButton aria-label="linkedin" onClick={currentSettings.onToggleMode}>
+          {themeMode === 'light' ? (
+            <DarkModeIcon fontSize="medium" sx={{ color: 'black' }} />
+          ) : (
+            <LightModeIcon fontSize="medium" sx={{ color: 'white' }} />
+          )}
+        </IconButton>
         <LanguagePopover />
 
         <IconButton
@@ -68,15 +98,6 @@ export default function Header({ onOpenNav }: Props) {
           href="https://www.linkedin.com/in/paualarcon/"
         >
           <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
-        </IconButton>
-
-        <IconButton
-          target="_blank"
-          aria-label="twitter"
-          href="https://twitter.com/paualarco"
-          sx={{ color: '#33B2FF' }}
-        >
-          <TwitterIcon fontSize="medium" />
         </IconButton>
 
         {/* <NotificationsPopover /> */}

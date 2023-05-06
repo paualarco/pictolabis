@@ -113,16 +113,8 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
             textTransform: 'none',
           }}
           variant="contained"
-          href="https://www.patreon.com/paualarco"
-          endIcon={
-            <LocalCafeIcon />
-            // <Image
-            //   disabledEffect
-            //   src="/assets/icons/navbar/Digital-Patreon-Logo_White.png"
-            //   alt="patreon"
-            //   sx={{ height: 25, width: 25 }}
-            // />
-          }
+          href="https://www.buymeacoffee.com/paualarcon"
+          endIcon={<LocalCafeIcon />}
         >
           Buy me a coffee
         </Button>
