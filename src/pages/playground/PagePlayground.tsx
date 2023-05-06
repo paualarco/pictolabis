@@ -16,7 +16,7 @@ import {
   Grid,
   Badge,
 } from '@mui/material';
-import { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import useCopyToClipboard from 'src/hooks/useCopyToClipboard';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
@@ -37,6 +37,7 @@ import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import StarsIcon from '@mui/icons-material/Stars';
 import { KeywordReference } from 'src/types/KeywordReference';
 import KeywordChip from 'src/components/card/KeywordChip';
+import { KeywordChipReference } from 'src/types/KeywordChipReference';
 // ----------------------------------------------------------------------
 
 export default function PagePlayground() {
@@ -73,13 +74,14 @@ export default function PagePlayground() {
     }
   };
 
-  const [keywords, setKeywords] = useState<KeywordReference[]>([]);
+  const [keywords, setKeywords] = useState<KeywordChipReference[]>([]);
 
   const addKeyword = useCallback(
     (newKeyword: KeywordReference) => {
       console.info(`keywords: ${keywords}`);
       const temp = keywords;
-      temp.push(newKeyword);
+      const chipRef = { ...newKeyword, chipId: Math.random() };
+      temp.push(chipRef);
       setKeywords(temp);
       setKeywordsText(keywords.map((a) => `${a.title} `).toString());
     },
@@ -87,9 +89,29 @@ export default function PagePlayground() {
   );
 
   const removeKeyword = useCallback(
-    (newKeyword: KeywordReference) => {
-      const index = keywords.findIndex((k) => k.id === newKeyword.id);
-      const removed = index !== -1 && setKeywords(keywords.splice(index, 1));
+    (keyword: KeywordReference) => {
+      const index = keywords.findIndex((k) => k.id === keyword.id);
+      console.log(`remove index ${index}, newKeyword: ${keyword.id}`);
+      if (index !== -1) {
+        const temp = keywords;
+        temp.splice(index, 1);
+        setKeywords(temp);
+        setKeywordsText(keywords.map((a) => `${a.title} `).toString());
+      }
+    },
+    [keywords, setKeywords]
+  );
+
+  const removeKeywordByChipId = useCallback(
+    (keywordChip: KeywordChipReference) => {
+      const index = keywords.findIndex((k) => k.chipId === keywordChip.chipId);
+      console.log(`remove index ${index}, newKeyword: ${keywordChip.id}`);
+      if (index !== -1) {
+        const temp = keywords;
+        temp.splice(index, 1);
+        setKeywords(temp);
+        setKeywordsText(keywords.map((a) => `${a.title} `).toString());
+      }
     },
     [keywords, setKeywords]
   );
@@ -112,6 +134,22 @@ export default function PagePlayground() {
     overflow: 'visible',
     '& .MuiTabs-scroller': { overflow: 'visible !important' },
   };
+
+  const dynamicBadgeTitle = (group: Group, tabTitle: string) => (
+    <Badge
+      sx={{
+        p: 0.7,
+        '& .MuiBadge-badge': {
+          // color: 'lightgreen',
+          color: 'white',
+          backgroundColor: groupColor.get(group),
+        },
+      }}
+      badgeContent={findGroupOccurences(group)}
+    >
+      <Typography>{tabTitle}</Typography>
+    </Badge>
+  );
   return (
     <>
       <Container maxWidth="lg">
@@ -218,7 +256,9 @@ export default function PagePlayground() {
                       id: reference.id,
                       title: reference.title,
                       img: reference.img,
+                      chipId: reference.chipId,
                     }}
+                    onRemove={removeKeywordByChipId}
                     isStared
                     isPinned
                   />
@@ -250,65 +290,72 @@ export default function PagePlayground() {
             icon={<BrushIcon />}
             iconPosition="start"
             sx={badgeTabStyle}
-            label={
-              <Badge
-                sx={{
-                  p: 0.7,
-                  '& .MuiBadge-badge': {
-                    // color: 'lightgreen',
-                    color: 'white',
-                    backgroundColor: groupColor.get('style'),
-                  },
-                }}
-                badgeContent={findGroupOccurences('style')}
-              >
-                <Typography>Style</Typography>
-              </Badge>
-            }
+            label={dynamicBadgeTitle('style', 'Style')}
             value="style"
           />
 
-          <Tab icon={<CollectionsIcon />} iconPosition="start" label="Subject" value="subject" />
+          <Tab
+            icon={<CollectionsIcon />}
+            iconPosition="start"
+            sx={badgeTabStyle}
+            label={dynamicBadgeTitle('subject', 'Subject')}
+            value="subject"
+          />
           <Tab
             icon={<AddReactionIcon />}
             iconPosition="start"
-            label="Qualities"
+            sx={badgeTabStyle}
+            label={dynamicBadgeTitle('qualities', 'Qualities')}
             value="qualities"
           />
-          <Tab icon={<VisibilityIcon />} iconPosition="start" label="View" value="view" />
+          <Tab
+            icon={<VisibilityIcon />}
+            iconPosition="start"
+            sx={badgeTabStyle}
+            label={dynamicBadgeTitle('view', 'View')}
+            value="view"
+          />
           <Tab
             icon={<CameraEnhanceIcon />}
             iconPosition="start"
-            label="Shooting"
+            sx={badgeTabStyle}
+            label={dynamicBadgeTitle('shooting', 'Shooting')}
             value="shooting"
           />
           <Tab
             icon={<AspectRatioIcon />}
             iconPosition="start"
-            label="Image ratio"
+            sx={badgeTabStyle}
+            label={dynamicBadgeTitle('image-ratio', 'Image ratio')}
             value="image-ratio"
           />
-          <Tab icon={<EmojiPeopleIcon />} iconPosition="start" label="Artist" value="artist" />
+          <Tab
+            icon={<EmojiPeopleIcon />}
+            iconPosition="start"
+            sx={badgeTabStyle}
+            label={dynamicBadgeTitle('artist', 'Artist')}
+            value="artist"
+          />
           <Tab icon={<StarsIcon />} iconPosition="start" label="Stared" value="stared" />
         </TabList>
         <TabPanel value="style" sx={{ background: 'ANY_COLOR' }}>
           <PanelStyle
             handleAddKeyword={addKeyword}
-            handleRemoveKeyword={addKeyword}
+            handleRemoveKeyword={removeKeyword}
             findKeywordOccurences={findKeyword}
           />
         </TabPanel>
         <TabPanel value="subject">
           <PanelSubject
             handleAddKeyword={addKeyword}
-            handleRemoveKeyword={addKeyword}
+            handleRemoveKeyword={removeKeyword}
             findKeywordOccurences={findKeyword}
           />
         </TabPanel>
         <TabPanel value="qualities">
           <PanelQualities
             handleAddKeyword={addKeyword}
-            handleRemoveKeyword={addKeyword}
+            handleRemoveKeyword={removeKeyword}
             findKeywordOccurences={findKeyword}
           />
         </TabPanel>
@@ -323,6 +370,7 @@ export default function PagePlayground() {
             isStared
             occurrences={findKeyword('image-ratio_001').length}
             handleAdd={addKeyword}
+            handleRemove={removeKeyword}
             isPinned
           />
         </TabPanel>
@@ -330,7 +378,7 @@ export default function PagePlayground() {
         <TabPanel value="view">
           <PanelView
             handleAddKeyword={addKeyword}
-            handleRemoveKeyword={addKeyword}
+            handleRemoveKeyword={removeKeyword}
             findKeywordOccurences={findKeyword}
           />
         </TabPanel>
@@ -346,6 +394,7 @@ export default function PagePlayground() {
             isStared
             occurrences={findKeyword('image-ratio_001').length}
             handleAdd={addKeyword}
+            handleRemove={removeKeyword}
             isPinned
           />
         </TabPanel>

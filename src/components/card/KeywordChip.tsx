@@ -17,17 +17,15 @@ import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import { Group, groupColor } from 'src/types/Group';
 import { KeywordReference } from 'src/types/KeywordReference';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { KeywordChipReference } from 'src/types/KeywordChipReference';
 
 export type KeywordChipProps = {
-  reference: KeywordReference;
+  reference: KeywordChipReference;
+  onRemove: (keywordChip: KeywordChipReference) => void;
   isStared?: boolean;
   isPinned?: boolean;
 };
-export default function KeywordChip({ reference, isStared, isPinned }: KeywordChipProps) {
-  const handleDelete = () => {
-    console.info('You clicked the delete icon.');
-  };
-
+export default function KeywordChip({ reference, onRemove, isStared, isPinned }: KeywordChipProps) {
   const color = groupColor.get(reference.group);
   return (
     <Chip
@@ -35,7 +33,7 @@ export default function KeywordChip({ reference, isStared, isPinned }: KeywordCh
       size="medium"
       variant="outlined"
       deleteIcon={<CancelIcon sx={{ height: 19 }} />}
-      onDelete={handleDelete}
+      onDelete={() => onRemove(reference)}
       label={reference.title}
       // icon={
       //   <IconButton>

@@ -81,6 +81,7 @@ export default function PanelQualities({
           isStared
           occurrences={findKeywordOccurences('image-ratio_001').length}
           handleAdd={handleAddKeyword}
+          handleRemove={handleRemoveKeyword}
           isPinned
         />
       </TabPanel>

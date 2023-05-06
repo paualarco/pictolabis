@@ -30,6 +30,7 @@ export default function PanelGridCards({
                 }}
                 isStared={isStared}
                 handleAdd={handleAddKeyword}
+                handleRemove={handleRemoveKeyword}
                 occurrences={0}
                 isPinned={isPinned}
               />

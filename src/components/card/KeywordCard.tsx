@@ -17,6 +17,7 @@ export type KeywordCardProps = {
   isStared?: boolean;
   occurrences: number;
   handleAdd: (keywordRef: KeywordReference) => void;
+  handleRemove: (keywordRef: KeywordReference) => void;
   isPinned?: boolean;
 };
 export default function KeywordCard({
@@ -25,6 +26,7 @@ export default function KeywordCard({
   isPinned,
   occurrences,
   handleAdd,
+  handleRemove,
 }: KeywordCardProps) {
   const pinnedColor = isPinned ? 'disabled' : 'secondary';
 
@@ -63,7 +65,13 @@ export default function KeywordCard({
               <PushPinIcon color={pinnedColor} fontSize="medium" />
             </Button>
             <Stack direction="row">
-              <Button color="error">
+              <Button
+                color="error"
+                onClick={() => {
+                  handleRemove(reference);
+                  setActualOcurrences(actualOccurences - 1);
+                }}
+              >
                 <RemoveIcon color={removeColor} fontSize="medium" />
               </Button>
               <Button
