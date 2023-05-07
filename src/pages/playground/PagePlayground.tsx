@@ -31,7 +31,7 @@ import { Group, GroupColor, groupColor } from 'src/types/Group';
 import BrushIcon from '@mui/icons-material/Brush';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
-import AddTaskIcon from '@mui/icons-material/AddTask';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
@@ -299,7 +299,7 @@ export default function PagePlayground() {
                           color="success"
                           onClick={addTextKeyword}
                         >
-                          <AddTaskIcon />
+                          <ControlPointIcon />
                         </IconButton>
                       </Tooltip>
                     </Box>

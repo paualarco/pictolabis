@@ -38,7 +38,16 @@ export default function KeywordChip({
 
   return (
     <Chip
-      sx={{ backgroundColor: backgroundClolor, color, height: 25, m: 0.1 }}
+      sx={{
+        backgroundColor: backgroundClolor,
+        color,
+        height: 25,
+        m: 0.1,
+        '& .MuiChip-deleteIcon': {
+          color: 'black',
+          opacity: '35%',
+        },
+      }}
       size="medium"
       variant="outlined"
       disabled={isDisabled}

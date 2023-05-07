@@ -48,12 +48,13 @@ export default function PageWelcome() {
     'Whether you are a professional artist or just someone who loves to create, our web app is here to support your creative process by generating prompts that will ignite your imagination.🔥';
 
   const paragraph6 =
-    'Overall, I am aim to be a fun, engaging, and helpful resource for artists and to enhance creativity on their image generation process and unlock new creative possibilities.';
+    'Overall, we aim to be a fun, engaging, and helpful resource for artists and to enhance creativity on their image generation process and unlock new creative possibilities.';
 
+  // Creating effective prompts for AI-generated image generation is crucial for achieving desired results.
   const paragraphStateOfTheArt1 =
-    "Creating effective prompts for AI-generated image generation is crucial for achieving desired results. A prompt serves as a guiding instruction that directs the AI model's output. ";
+    "A prompt serves as a guiding instruction that directs the AI model's output. But humans are still responsible of writing good prompts. Which is not as trivial, there are a bast variety of keywords, styles, attributes and many other parameters that can have an impact to the result.";
   const paragraphStateOfTheArt2 =
-    'We provide a bast variety of keywords, visual cues, templates, styles, attributes and many other parameters, all to inspire users to come up with original prompts, helping them refine creative ideas to generate unique and diverse images.';
+    'We fill that gap, a resource to help inspiring users to come up with original prompts and refine creative ideas to generate unique and diverse images.';
 
   const paragraphStateOfTheArt3 =
     'It serves as a catalyst for sparking creativity and pushing the boundaries of what is possible in image generation, just like how a tasty appetizer can whet your appetite for more culinary delights.';
@@ -78,7 +79,7 @@ export default function PageWelcome() {
         </Typography>
 
         <Typography gutterBottom variant="h6" marginTop={2}>
-          What?
+          Purpose
         </Typography>
 
         <Typography gutterBottom>
