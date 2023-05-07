@@ -229,7 +229,7 @@ export default function PageChart() {
 
       <Container maxWidth="xl">
         <Block title="Chart" sx={{ overflow: 'auto' }}>
-          <CategorizationChart data={DATA} variant="group" lineHeight="64px" />
+          <CategorizationChart data={DATA} variant="simple" lineHeight="64px" />
         </Block>
       </Container>
     </>

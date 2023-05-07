@@ -6,7 +6,8 @@ export type Group =
   | 'shooting'
   | 'image-ratio'
   | 'artist'
-  | 'stared';
+  | 'stared'
+  | 'text';
 
 export type GroupColor =
   | '#D899FF' // purple
@@ -21,7 +22,8 @@ export type GroupColor =
   | '#ADE792' // green
   | '#FF3030' // red
   | '#FBFFA1' // yellow
-  | '#228454'; // darkblue
+  | '#228454' // darkblue
+  | 'white'; // darkblue
 
 export const groupColor: Map<Group, GroupColor> = new Map<Group, GroupColor>([
   ['style', '#7635dc'],
@@ -32,4 +34,7 @@ export const groupColor: Map<Group, GroupColor> = new Map<Group, GroupColor>([
   ['image-ratio', '#FF3030'],
   ['artist', '#e075b5'],
   ['stared', '#FFE9A0'],
+  ['text', 'white'],
 ]);
+
+export const textColor = (group: Group) => (group === 'text' ? 'black' : 'white');

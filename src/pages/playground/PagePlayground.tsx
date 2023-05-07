@@ -14,6 +14,7 @@ import {
   Tabs,
   Tab,
   Grid,
+  Divider,
   Badge,
 } from '@mui/material';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -30,6 +31,7 @@ import { Group, GroupColor, groupColor } from 'src/types/Group';
 import BrushIcon from '@mui/icons-material/Brush';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
@@ -60,11 +62,12 @@ export default function PagePlayground() {
 
   const tabColour: GroupColor = useMemo(() => groupColor.get(tabValue) ?? '#D899FF', [tabValue]);
 
-  const ref: KeywordReference = {
+  const ref: KeywordChipReference = {
     img: '/assets/images/cards/op.png',
-    title: 'Scientist',
-    group: 'image-ratio',
+    title: value,
+    group: 'text',
     id: 'image-ratio_001dad2',
+    chipId: 123,
   };
 
   const onCopy = (text: string) => {
@@ -78,7 +81,6 @@ export default function PagePlayground() {
 
   const addKeyword = useCallback(
     (newKeyword: KeywordReference) => {
-      console.info(`keywords: ${keywords}`);
       const temp = keywords;
       const chipRef = { ...newKeyword, chipId: Math.random() };
       temp.push(chipRef);
@@ -87,6 +89,20 @@ export default function PagePlayground() {
     },
     [keywords, setKeywords]
   );
+
+  const addTextKeyword = useCallback(() => {
+    const textChip: KeywordChipReference = {
+      img: 'undefined',
+      title: value,
+      group: 'text',
+      id: value,
+      chipId: Math.random(),
+    };
+    const temp = [textChip].concat(keywords);
+    setKeywords(temp);
+    setKeywordsText(temp.map((a) => `${a.title} `).toString());
+    setValue('');
+  }, [value, keywords, setKeywords]);
 
   const removeKeyword = useCallback(
     (keyword: KeywordReference) => {
@@ -105,7 +121,6 @@ export default function PagePlayground() {
   const removeKeywordByChipId = useCallback(
     (keywordChip: KeywordChipReference) => {
       const index = keywords.findIndex((k) => k.chipId === keywordChip.chipId);
-      console.log(`remove index ${index}, newKeyword: ${keywordChip.id}`);
       if (index !== -1) {
         const temp = keywords;
         temp.splice(index, 1);
@@ -168,9 +183,8 @@ export default function PagePlayground() {
             gridTemplateColumns={{ xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
             gap={5}
           >
-            <Stack spacing={2}>
-              <>
-                {/* <TextField
+            <>
+              {/* <TextField
                   fullWidth
                   multiline
                   value={value}
@@ -188,48 +202,36 @@ export default function PagePlayground() {
                     ),
                   }}
                 /> */}
-                <Stack direction="column" spacing={2}>
-                  <Typography variant="overline" sx={{ color: 'text.secondary' }}>
-                    Result prompt
-                  </Typography>
-                  <Box
-                    gap={5}
-                    component="span"
-                    sx={{
-                      p: 2,
-                      borderRadius: '12px',
-                      border: '1px solid lightgray',
-                      overflow: 'auto',
-                      '&:hover': {
-                        borderColor: 'black',
-                      },
-                    }}
-                  >
-                    <Stack direction="row">
-                      <Box width="95%">{keywordsText}</Box>
-                      <Box>
-                        <Tooltip title="Copy">
-                          <IconButton onClick={() => onCopy(keywordsText)}>
-                            <Iconify icon="eva:copy-fill" width={24} />
-                          </IconButton>
-                        </Tooltip>
-                      </Box>
-                    </Stack>
-                  </Box>
-                  <Typography variant="overline" sx={{ color: 'text.secondary' }}>
-                    Custom Text
-                  </Typography>
-
-                  <TextField
-                    fullWidth
-                    multiline
-                    value={value}
-                    placeholder="Type custom text"
-                    onChange={handleChange}
-                  />
-                </Stack>
-              </>
-            </Stack>
+              <Stack direction="column" spacing={2}>
+                <Typography variant="overline" sx={{ color: 'text.secondary' }}>
+                  Result prompt
+                </Typography>
+                <Box
+                  gap={5}
+                  component="span"
+                  sx={{
+                    p: 2,
+                    borderRadius: '12px',
+                    border: '1px solid lightgray',
+                    overflow: 'auto',
+                    '&:hover': {
+                      borderColor: 'black',
+                    },
+                  }}
+                >
+                  <Stack direction="row">
+                    <Box width="95%">{keywordsText}</Box>
+                    <Box>
+                      <Tooltip title="Copy">
+                        <IconButton onClick={() => onCopy(keywordsText)}>
+                          <Iconify icon="eva:copy-fill" width={24} />
+                        </IconButton>
+                      </Tooltip>
+                    </Box>
+                  </Stack>
+                </Box>
+              </Stack>
+            </>
 
             <Stack spacing={2}>
               <Typography variant="overline" sx={{ color: 'text.secondary' }}>
@@ -248,21 +250,61 @@ export default function PagePlayground() {
                   },
                 }}
               >
-                {keywords.map((reference) => (
-                  <KeywordChip
-                    key={reference.id + Math.random()}
-                    reference={{
-                      group: reference.group,
-                      id: reference.id,
-                      title: reference.title,
-                      img: reference.img,
-                      chipId: reference.chipId,
-                    }}
-                    onRemove={removeKeywordByChipId}
-                    isStared
-                    isPinned
-                  />
-                ))}
+                <Stack direction="column">
+                  <Box marginBottom={1}>
+                    <KeywordChip
+                      key={ref.id + Math.random()}
+                      reference={ref}
+                      onRemove={removeKeywordByChipId}
+                      isDisabled
+                      isStared
+                      isPinned
+                    />
+                    {keywords.map((reference) => (
+                      <KeywordChip
+                        key={reference.id + Math.random()}
+                        reference={{
+                          group: reference.group,
+                          id: reference.id,
+                          title: reference.title,
+                          img: reference.img,
+                          chipId: reference.chipId,
+                        }}
+                        onRemove={removeKeywordByChipId}
+                        isStared
+                        isPinned
+                      />
+                    ))}
+                  </Box>
+                  <Divider variant="middle" />
+                  <Stack direction="row" marginBottom={-2}>
+                    <Box width="95%">
+                      <TextField
+                        fullWidth
+                        multiline
+                        variant={undefined}
+                        value={value}
+                        placeholder="Type custom text"
+                        onChange={handleChange}
+                        sx={{
+                          maxWidth: '100%',
+                          '& fieldset': { border: 'none' },
+                        }}
+                      />
+                    </Box>
+                    <Box marginTop={1}>
+                      <Tooltip title="Add ">
+                        <IconButton
+                          disabled={value === ''}
+                          color="success"
+                          onClick={addTextKeyword}
+                        >
+                          <AddTaskIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </Box>
+                  </Stack>
+                </Stack>
               </Box>
             </Stack>
 

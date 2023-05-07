@@ -14,7 +14,7 @@ import ArrowBackIos from '@mui/icons-material/ArrowBackIos';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
-import { Group, groupColor } from 'src/types/Group';
+import { Group, groupColor, textColor } from 'src/types/Group';
 import { KeywordReference } from 'src/types/KeywordReference';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { KeywordChipReference } from 'src/types/KeywordChipReference';
@@ -22,16 +22,26 @@ import { KeywordChipReference } from 'src/types/KeywordChipReference';
 export type KeywordChipProps = {
   reference: KeywordChipReference;
   onRemove: (keywordChip: KeywordChipReference) => void;
+  isDisabled?: boolean;
   isStared?: boolean;
   isPinned?: boolean;
 };
-export default function KeywordChip({ reference, onRemove, isStared, isPinned }: KeywordChipProps) {
-  const color = groupColor.get(reference.group);
+export default function KeywordChip({
+  reference,
+  onRemove,
+  isDisabled,
+  isStared,
+  isPinned,
+}: KeywordChipProps) {
+  const backgroundClolor = groupColor.get(reference.group);
+  const color = textColor(reference.group);
+
   return (
     <Chip
-      sx={{ backgroundColor: color, color: 'white', height: 25, m: 0.1 }}
+      sx={{ backgroundColor: backgroundClolor, color, height: 25, m: 0.1 }}
       size="medium"
       variant="outlined"
+      disabled={isDisabled}
       deleteIcon={<CancelIcon sx={{ height: 19 }} />}
       onDelete={() => onRemove(reference)}
       label={reference.title}
