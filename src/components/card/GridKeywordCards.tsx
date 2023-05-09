@@ -14,7 +14,7 @@ export default function PanelGridCards({
 }: GridKeywordCardsProps) {
   return (
     <Box sx={{ marginTop: '10px', flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 1, sm: 2, md: 6 }}>
+      <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 3, sm: 2, md: 2, lg: 2 }}>
         {cards.map(({ reference, isLiked: isStared, isAdded, isPinned }) => {
           const imgPath = `${cardsBasePath}${reference.img}`;
 

@@ -1,7 +1,19 @@
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Badge, Box, Button, CardActionArea, CardActions, Stack, Tooltip } from '@mui/material';
+import {
+  Badge,
+  Box,
+  Button,
+  CardActionArea,
+  CardActions,
+  Hidden,
+  ListItem,
+  ListItemSecondaryAction,
+  Popover,
+  Stack,
+  Tooltip,
+} from '@mui/material';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -9,7 +21,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarIcon from '@mui/icons-material/Star';
 import { groupColor } from 'src/types/Group';
 import { KeywordReference } from 'src/types/KeywordReference';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 export type KeywordCardProps = {
   reference: KeywordReference;
@@ -31,10 +43,6 @@ export default function KeywordCard({
 
   const fallbackImg = '/assets/images/cards/default.jpg';
 
-  const handleDelete = () => {
-    console.info('You clicked the delete icon.');
-  };
-
   const primaryColor = groupColor.get(reference.group);
 
   const [actualOccurences, setActualOcurrences] = useState(occurrences);
@@ -44,75 +52,77 @@ export default function KeywordCard({
   const removeColor = useMemo(() => (isAdded ? 'error' : 'disabled'), [isAdded]);
 
   const cardBorder = isAdded ? 5 : 0;
+
+  const cardColor = isAdded ? primaryColor : undefined;
+  const textColor = isAdded ? 'white' : undefined;
+
+  const handleOnClick = useCallback(
+    (r: KeywordReference) => {
+      console.log(`isAdded: ${isAdded}`);
+      if (isAdded) {
+        handleRemove(r);
+        setActualOcurrences(actualOccurences - 1);
+        return {};
+      }
+      handleAdd(r);
+      setActualOcurrences(actualOccurences + 1);
+      return {};
+    },
+    [isAdded, actualOccurences, handleAdd, handleRemove, setActualOcurrences]
+  );
+  // 230
   return (
-    <Card sx={{ maxWidth: 270, minWidth: 270 }}>
-      <CardActionArea>
+    <Card
+      sx={{
+        maxWidth: { xs: 140, sx: 230, md: 230 },
+        minWidth: { xs: 140, sx: 230, md: 230 },
+        backgroundColor: cardColor,
+      }}
+    >
+      <CardActionArea
+        component="span"
+        onClick={() => {
+          handleOnClick(reference);
+        }}
+      >
         <CardMedia
           component="img"
-          height="210"
+          sx={{ maxWidth: { xs: 140, sx: 200, md: 400 } }}
           image={reference.img} // fileSys.existsSync(img) ? img : fallbackImg}
           alt={reference.title}
           defaultValue="a"
-          onClick={() => {
-            handleAdd(reference);
-            setActualOcurrences(actualOccurences + 1);
-          }}
         />
-        <Typography sx={{ marginLeft: '10px' }} variant="h6">
-          {reference.title}
-        </Typography>
-        <Box sx={{ borderBottom: cardBorder, borderColor: primaryColor }}>
-          <CardActions>
-            <Stack maxHeight="25px" direction="row">
-              <Tooltip title="Coming soon">
-                <Button size="medium" color="secondary">
-                  <PushPinIcon color={pinnedColor} fontSize="medium" />
-                </Button>
-              </Tooltip>
-              <Stack direction="row">
-                <Button
-                  color="error"
-                  disabled={!isAdded}
-                  onClick={() => {
-                    handleRemove(reference);
-                    setActualOcurrences(actualOccurences - 1);
-                  }}
-                >
-                  <RemoveIcon color={removeColor} fontSize="medium" />
-                </Button>
-                <Button
-                  color="primary"
-                  onClick={() => {
-                    handleAdd(reference);
-                    setActualOcurrences(actualOccurences + 1);
-                  }}
-                >
-                  <Badge
-                    sx={{
-                      p: 0.7,
-                      '& .MuiBadge-badge': {
-                        // color: 'lightgreen',
-                        color: 'white',
-                        backgroundColor: primaryColor,
-                      },
-                    }}
-                    badgeContent={actualOccurences}
-                  >
-                    <AddIcon color="primary" fontSize="medium" />
-                  </Badge>
-                </Button>
-              </Stack>
-              <Button color="warning">
-                {isStared ? (
-                  <StarOutlineIcon color="inherit" fontSize="medium" />
-                ) : (
-                  <StarIcon color="inherit" fontSize="medium" />
-                )}
-              </Button>
-            </Stack>
-          </CardActions>
-        </Box>
       </CardActionArea>
+
+      <CardActions>
+        {/* <Box
+          display="grid"
+          gridTemplateColumns={{ xs: 'repeat(2, 2fr)', md: 'repeat(2, 1fr)' }}
+          gap={1}
+        > */}
+        <Box maxHeight="25px" marginTop="-3px">
+          <Typography sx={{ marginLeft: '10px', color: textColor }} variant="h6">
+            {reference.title}
+          </Typography>
+        </Box>
+
+        {/* <Stack width="30%" direction="row">
+          <Tooltip title="Coming soon">
+            <Button component="span" size="medium" color="secondary">
+              <PushPinIcon color={pinnedColor} fontSize="medium" />
+            </Button>
+          </Tooltip>
+
+          <Button color="warning">
+            {isStared ? (
+              <StarOutlineIcon color="inherit" fontSize="medium" />
+            ) : (
+              <StarIcon color="inherit" fontSize="medium" />
+            )}
+          </Button>
+        </Stack> */}
+        {/* </Box> */}
+      </CardActions>
     </Card>
   );
 }

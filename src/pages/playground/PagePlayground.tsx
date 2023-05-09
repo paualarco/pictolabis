@@ -425,7 +425,6 @@ export default function PagePlayground() {
           />
         </TabPanel>
         <TabPanel value="artist">
-          {' '}
           <KeywordCard
             reference={{
               img: '/assets/images/cards/op.png',
