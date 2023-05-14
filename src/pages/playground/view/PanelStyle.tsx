@@ -7,9 +7,10 @@ import { useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 // eslint-disable-next-line import/no-cycle
 import PanelGridCards from 'src/components/card/GridKeywordCards';
-import { themes, techniques, tone } from 'src/assets/data/cards/style';
+import { movement, techniques, tone } from 'src/assets/data/cards/style';
 import { KeywordReference } from 'src/types/KeywordReference';
 import { groupColor } from 'src/types/Group';
+import { referenceToCard } from 'src/utils/cards';
 import { CardsActionProps } from '../types/CardActionProps';
 
 export default function PanelStyle({
@@ -23,13 +24,6 @@ export default function PanelStyle({
   };
 
   const tabColour = groupColor.get('style');
-
-  const referenceToCard = (ref: KeywordReference) => ({
-    reference: ref,
-    isLiked: false,
-    isAdded: false,
-    isPinned: false,
-  });
 
   return (
     <TabContext
@@ -60,7 +54,7 @@ export default function PanelStyle({
       </TabList>
       <TabPanel value="theme">
         <PanelGridCards
-          cards={themes.map(referenceToCard)}
+          cards={movement.map(referenceToCard)}
           handleAddKeyword={handleAddKeyword}
           handleRemoveKeyword={handleRemoveKeyword}
           findKeywordOccurences={findKeywordOccurences}

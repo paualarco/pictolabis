@@ -83,8 +83,8 @@ export default function PageWelcome() {
         </Typography>
 
         <Typography gutterBottom>
-          We are an image prompt generator, designed to provide a bast set of classified keywords
-          that spark your creativity and help you write original and inspiring prompts.💡🤖
+          We are an image prompt explorer, designed to provide a bast set of classified keywords
+          that spark your creativity and help write original and inspiring prompts.💡🤖
         </Typography>
 
         <Typography>{paragraph6}</Typography>
