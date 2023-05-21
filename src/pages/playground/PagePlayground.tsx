@@ -40,6 +40,9 @@ import StarsIcon from '@mui/icons-material/Stars';
 import { KeywordReference } from 'src/types/KeywordReference';
 import KeywordChip from 'src/components/card/KeywordChip';
 import { KeywordChipReference } from 'src/types/KeywordChipReference';
+import PanelGridCards from 'src/components/card/GridKeywordCards';
+import { aspectRatio } from 'src/assets/data/cards/view';
+import { referenceToCard } from 'src/utils/cards';
 // ----------------------------------------------------------------------
 
 export default function PagePlayground() {
@@ -357,13 +360,7 @@ export default function PagePlayground() {
             label={dynamicBadgeTitle('view', 'View')}
             value="view"
           />
-          <Tab
-            icon={<CameraEnhanceIcon />}
-            iconPosition="start"
-            sx={badgeTabStyle}
-            label={dynamicBadgeTitle('shooting', 'Shooting')}
-            value="shooting"
-          />
+
           <Tab
             icon={<AspectRatioIcon />}
             iconPosition="start"
@@ -401,21 +398,7 @@ export default function PagePlayground() {
             findKeywordOccurences={findKeyword}
           />
         </TabPanel>
-        <TabPanel value="image-ratio">
-          <KeywordCard
-            reference={{
-              img: '/assets/images/cards/op.png',
-              title: 'Scientist',
-              group: 'image-ratio',
-              id: 'image-ratio_001',
-            }}
-            isStared
-            occurrences={findKeyword('image-ratio_001').length}
-            handleAdd={addKeyword}
-            handleRemove={removeKeyword}
-            isPinned
-          />
-        </TabPanel>
+
         <TabPanel value="shooting">
           <KeywordCard
             reference={{
@@ -438,6 +421,14 @@ export default function PagePlayground() {
             findKeywordOccurences={findKeyword}
           />
         </TabPanel>
+        <TabPanel value="image-ratio">
+          <PanelGridCards
+            cards={aspectRatio.map(referenceToCard)}
+            handleAddKeyword={addKeyword}
+            handleRemoveKeyword={removeKeyword}
+            findKeywordOccurences={findKeyword}
+          />
+        </TabPanel>
         <TabPanel value="artist">
           <KeywordCard
             reference={{
@@ -453,7 +444,7 @@ export default function PagePlayground() {
             isPinned
           />
         </TabPanel>
-        <TabPanel value="stared">Item One</TabPanel>
+        <TabPanel value="stared">Coming soon!</TabPanel>
       </TabContext>
     </>
   );
