@@ -757,5 +757,3 @@ export const motion: KeywordReference[] = [
     title: 'Throttling',
   },
 ];
-
-//  img: '/assets/images/cards/style/sticker.png',
