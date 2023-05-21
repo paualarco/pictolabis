@@ -20,6 +20,9 @@ import { useSnackbar } from 'src/components/snackbar';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { groupColor } from 'src/types/Group';
 import KeywordCard from 'src/components/card/KeywordCard';
+import PanelGridCards from 'src/components/card/GridKeywordCards';
+import { angleDegree } from 'src/assets/data/cards/view';
+import { referenceToCard } from 'src/utils/cards';
 import { CardsActionProps } from '../types/CardActionProps';
 // ----------------------------------------------------------------------
 
@@ -31,7 +34,7 @@ export default function PanelView({
   const { copy } = useCopyToClipboard();
   const { enqueueSnackbar } = useSnackbar();
 
-  const [tabValue, setTabValue] = useState('composition');
+  const [tabValue, setTabValue] = useState('angle-degree');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
@@ -61,24 +64,19 @@ export default function PanelView({
         }}
         onChange={handleTabChange}
       >
+        <Tab label="Angle degree" value="angle-degree" />
+        <Tab label="Camera" value="camera" />
         <Tab label="Composition" value="composition" />
         <Tab label="Shapes and geometry" value="shapes and geometry" />
         <Tab label="Spatial Relationships" value="spatial-relationships" />
         <Tab label="Visual Presentation" value="visual-presentation" />
       </TabList>
-      <TabPanel value="composition">
-        <KeywordCard
-          reference={{
-            img: '/assets/images/cards/op.png',
-            title: 'Scientist',
-            group,
-            id: 'image-ratio_001',
-          }}
-          isStared
-          occurrences={findKeywordOccurences('image-ratio_001').length}
-          handleAdd={handleAddKeyword}
-          handleRemove={handleRemoveKeyword}
-          isPinned
+      <TabPanel value="angle-degree">
+        <PanelGridCards
+          cards={angleDegree.map(referenceToCard)}
+          handleAddKeyword={handleAddKeyword}
+          handleRemoveKeyword={handleRemoveKeyword}
+          findKeywordOccurences={findKeywordOccurences}
         />
       </TabPanel>
     </TabContext>

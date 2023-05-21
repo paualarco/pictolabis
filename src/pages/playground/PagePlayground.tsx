@@ -416,7 +416,21 @@ export default function PagePlayground() {
             isPinned
           />
         </TabPanel>
-        <TabPanel value="shooting">Item</TabPanel>
+        <TabPanel value="shooting">
+          <KeywordCard
+            reference={{
+              img: '/assets/images/cards/op.png',
+              title: 'Scientist',
+              group: 'shooting',
+              id: 'image-ratio_001',
+            }}
+            isStared
+            occurrences={findKeyword('image-ratio_001').length}
+            handleAdd={addKeyword}
+            handleRemove={removeKeyword}
+            isPinned
+          />
+        </TabPanel>
         <TabPanel value="view">
           <PanelView
             handleAddKeyword={addKeyword}
