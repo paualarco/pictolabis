@@ -32,17 +32,38 @@ export const random: KeywordReference[] = [
     img: 'style/theme/low-polly-background-university.png',
     title: 'Low Polly',
   },
-  { group: 'style', id: 'style_random_001', img: 'style/theme/sticker.png', title: 'Sticker' },
 ];
 
 export const tone: KeywordReference[] = [
-  { group: 'style', id: 'style_tone_001', img: 'style/tone/dreamy.png', title: 'Dreamy' },
-  { group: 'style', id: 'style_tone_002', img: 'style/tone/', title: 'Floating Snowlfakes' },
+  {
+    group: 'style',
+    id: 'style_tone_starlight',
+    img: 'style/tone/starlight.png',
+    title: 'Starlight',
+  },
   {
     group: 'style',
     id: 'style_tone_003',
     img: 'style/tone/floating-lights.png',
     title: 'Floating lights',
+  },
+  {
+    group: 'style',
+    id: 'style_tone_steampunk',
+    img: 'style/tone/steampunk.png',
+    title: 'Steampunk',
+  },
+  {
+    group: 'style',
+    id: 'style_tone_game-character',
+    img: 'style/tone/game-character.png',
+    title: 'Game character',
+  },
+  {
+    group: 'style',
+    id: 'style_tone_cyberpunk',
+    img: 'style/theme/cyberpunk.png',
+    title: 'Cyberpunk',
   },
   { group: 'style', id: 'style_tone_004', img: 'style/tone/dusty.png', title: 'Dusty' },
   { group: 'style', id: 'style_tone_005', img: 'style/tone/divine.png', title: 'Divine' },
@@ -51,8 +72,7 @@ export const tone: KeywordReference[] = [
   { group: 'style', id: 'style_tone_008', img: 'style/tone/vibrant.png', title: 'Vibrant' },
   // { group: 'style', id: 'style_tone_009', img: 'style/tone/', title: 'Minimalist' },
   // { group: 'style', id: 'style_tone_010', img: 'style/surreal.png', title: 'Surreal' },
-  { group: 'style', id: 'style_tone_021', img: 'style/rustic.png', title: 'Rustic' },
-  // { group: 'style', id: 'style_tone_022', img: 'style/futuristic.png', title: 'Futuristic' },
+  { group: 'style', id: 'style_tone_021', img: 'style/tone/rustic.png', title: 'Rustic' },
   { group: 'style', id: 'style_tone_023', img: 'style/tone/playful.png', title: 'Playful' },
   { group: 'style', id: 'style_tone_024', img: 'style/tone/whimstical.png', title: 'Whimstical' },
   { group: 'style', id: 'style_tone_025', img: 'style/tone/nostalgic.png', title: 'Nostalgic' },
@@ -62,45 +82,77 @@ export const tone: KeywordReference[] = [
   { group: 'style', id: 'style_tone_030', img: 'style/tone/fantasy.png', title: 'Fantasy' },
   { group: 'style', id: 'style_tone_031', img: 'style/tone/frozen.png', title: 'Frozen' },
   { group: 'style', id: 'style_tone_032', img: 'style/tone/mysterious.png', title: 'Mysterious' },
-  // { group: 'style', id: 'style_tone_033', img: 'style/tone/', title: 'Bold' },
   { group: 'style', id: 'style_tone_034', img: 'style/tone/calming.png', title: 'Calming' },
   { group: 'style', id: 'style_tone_035', img: 'style/tone/energic.png', title: 'Energic' },
   { group: 'style', id: 'style_tone_036', img: 'style/tone/vibrant.png', title: 'Vibrant' },
-  // { group: 'style', id: 'style_tone_037', img: 'style/tone/', title: 'Natural' },
-  // { group: 'style', id: 'style_tone_038', img: 'style/tone/', title: 'Industrial' },
-  // { group: 'style', id: 'style_tone_039', img: 'style/tone/', title: 'Soft' },
   // { group: 'style', id: 'style_tone_040', img: 'style/tone/', title: 'Sleek' },
   { group: 'style', id: 'style_tone_041', img: 'style/tone/cosmic.png', title: 'Cosmic' },
   { group: 'style', id: 'style_tone_042', img: 'style/tone/retro.png', title: 'Retro' },
   { group: 'style', id: 'style_tone_043', img: 'style/tone/neon.png', title: 'Neon' },
-  // { group: 'style', id: 'style_tone_044', img: 'style/tone/', title: 'Grunge' },
-  // { group: 'style', id: 'style_tone_045', img: 'style/tone/', title: 'Haunting' },
-  { group: 'style', id: 'style_tone_046', img: 'style/tone/futuristic.png', title: 'Futuristic' },
+  { group: 'style', id: 'style_tone_festive', img: 'style/tone/festive.png', title: 'Festive' },
+  { group: 'style', id: 'style_tone_001', img: 'style/tone/dreamy.png', title: 'Dreamy' },
+  { group: 'style', id: 'style_tone_046', img: 'style/theme/futurist.png', title: 'Futurist' },
   { group: 'style', id: 'style_tone_047', img: 'style/tone/heavenly.png', title: 'Heavenly' },
   { group: 'style', id: 'style_tone_048', img: 'style/tone/meditative.png', title: 'Meditative' },
   { group: 'style', id: 'style_tone_049', img: 'style/tone/cinematic.png', title: 'Cinematic' },
   { group: 'style', id: 'style_tone_050', img: 'style/tone/enchanted.png', title: 'Enchanted' },
-  //  { group: 'style', id: 'style_tone_051', img: 'style/tone/', title: 'Gritty' },
-  // { group: 'style', id: 'style_tone_052', img: 'style/tone/', title: 'Organic' },
+  { group: 'style', id: 'style_tone_epic', img: 'style/tone/epic.png', title: 'Epic' },
+  {
+    group: 'style',
+    id: 'style_tone_legendary',
+    img: 'style/tone/legendary.png',
+    title: 'Legendary',
+  },
   { group: 'style', id: 'style_tone_053', img: 'style/tone/celestial.png', title: 'Celestial' },
   { group: 'style', id: 'style_tone_054', img: 'style/tone/glitchy.png', title: 'Glitchy' },
   { group: 'style', id: 'style_tone_055', img: 'style/tone/hypnotic.png', title: 'Hypnotic' },
   { group: 'style', id: 'style_tone_056', img: 'style/tone/cahotic.png', title: 'Chaotic' },
-  { group: 'style', id: 'style_tone_057', img: 'style/tone/clean.png', title: 'Clean' },
   { group: 'style', id: 'style_tone_058', img: 'style/tone/moody.png', title: 'Moody' },
   { group: 'style', id: 'style_tone_059', img: 'style/tone/vintage.png', title: 'Vintage' },
   { group: 'style', id: 'style_tone_051', img: 'style/tone/surreal.png', title: 'Surreal' },
-  { group: 'style', id: 'style_tone_051', img: 'style/tone/dynamic.png', title: 'Dynamic' },
   { group: 'style', id: 'style_tone_051', img: 'style/tone/edgy.png', title: 'Edgy' },
+  {
+    group: 'style',
+    id: 'style_tone_airbush',
+    img: 'style/theme/airbush.webp',
+    title: 'Airbush art',
+  },
+
   //  { group: 'style', id: 'style_tone_051', img: 'style/tone/', title: 'Soft' },
 ];
 
 export const techniques: KeywordReference[] = [
   {
     group: 'style',
+    id: 'style_technique_002',
+    img: 'style/technique/pixel.png',
+    title: 'Pixel',
+  },
+  {
+    group: 'style',
+    id: 'style_technique_sticker',
+    img: 'style/technique/sticker.png',
+    title: 'Sticker',
+  },
+
+  {
+    group: 'style',
+    id: 'style_technique_isometric',
+    img: 'style/theme/isometric.png',
+    title: 'Isometric',
+  },
+
+  {
+    group: 'style',
     id: 'style_theme_003',
     img: 'style/technique/origami.png',
     title: 'Origami',
+  },
+  {
+    group: 'style',
+    id: 'style_technique_3d',
+    img: 'style/technique/3d.png',
+    title: '3D',
   },
   {
     group: 'style',
@@ -126,6 +178,12 @@ export const techniques: KeywordReference[] = [
     img: 'style/technique/pastel-drawing.png',
     title: 'Pastel Drawing',
   },
+  {
+    group: 'style',
+    id: 'style_technique_tribal-art',
+    img: 'style/technique/tribal-art.png',
+    title: 'Tribal art',
+  },
 
   {
     group: 'style',
@@ -145,7 +203,12 @@ export const techniques: KeywordReference[] = [
     img: 'style/technique/pointillism.webp',
     title: 'Pointillism',
   },
-
+  {
+    group: 'style',
+    id: 'style_technique_034',
+    img: 'style/theme/calligraphic.png',
+    title: 'Calligraphic',
+  },
   {
     group: 'style',
     id: 'style_technique_graffiti',
@@ -176,17 +239,10 @@ export const techniques: KeywordReference[] = [
     img: 'style/technique/paper-quilling.png',
     title: 'Paper quilling',
   },
+  { group: 'style', id: 'style_theme_052', img: 'style/theme/line-art.png', title: 'Line art' },
 ];
 
 export const movement: KeywordReference[] = [
-  { group: 'style', id: 'style_theme_001', img: 'style/theme/isometric.png', title: 'Isometric' },
-  {
-    group: 'style',
-    id: 'style_theme_002',
-    img: 'style/theme/pixel.png',
-    title: 'Pixel',
-  },
-
   {
     group: 'style',
     id: 'style_theme_004',
@@ -205,14 +261,6 @@ export const movement: KeywordReference[] = [
     img: 'style/theme/abstract-expressionism.webp',
     title: 'Abstract expressionism',
   },
-  {
-    group: 'style',
-    id: 'style_theme_007',
-    img: 'style/theme/steampunk.png',
-    title: 'Steampunk',
-  },
-  { group: 'style', id: 'style_theme_008', img: 'style/theme/cyberpunk.png', title: 'Cyberpunk' },
-
   { group: 'style', id: 'style_theme_011', img: 'style/theme/surrealist.png', title: 'Surrealist' },
   { group: 'style', id: 'style_theme_012', img: 'style/theme/realist.png', title: 'Realist' },
   {
@@ -290,12 +338,7 @@ export const movement: KeywordReference[] = [
     img: 'style/theme/street-art.webp',
     title: 'Street art',
   },
-  {
-    group: 'style',
-    id: 'style_theme_034',
-    img: 'style/theme/calligraphic.png',
-    title: 'Calligraphic',
-  },
+
   { group: 'style', id: 'style_theme_035', img: 'style/theme/folk-art.png', title: 'Folk art' },
   {
     group: 'style',
@@ -303,7 +346,6 @@ export const movement: KeywordReference[] = [
     img: 'style/theme/primitive-art.png',
     title: 'Primitivist',
   },
-  { group: 'style', id: 'style_theme_037', img: 'style/theme/tribal-art.png', title: 'Tribal art' },
   { group: 'style', id: 'style_theme_038', img: 'style/theme/naive-art.webp', title: 'Naive art' },
   { group: 'style', id: 'style_theme_039', img: 'style/theme/symbolist.webp', title: 'Symbolist' },
   {
@@ -357,14 +399,16 @@ export const movement: KeywordReference[] = [
     img: 'style/theme/traditional.png',
     title: 'Traditional',
   },
-  { group: 'style', id: 'style_theme_051', img: 'style/theme/airbush.webp', title: 'Airbush art' },
-  { group: 'style', id: 'style_theme_052', img: 'style/theme/line-art.png', title: 'Line art' },
-  { group: 'style', id: 'style_theme_053', img: 'style/theme/gummies.png', title: 'Gummi' },
 ];
 
-//  img: '/assets/images/cards/style/theme/sticker.png',
-
-export const layout: KeywordReference[] = [];
+export const layout: KeywordReference[] = [
+  {
+    group: 'style',
+    id: 'style_layout_linechart',
+    img: 'style/layout/linechart.png',
+    title: 'Game piece',
+  },
+];
 
 export const container: KeywordReference[] = [
   {
@@ -373,6 +417,30 @@ export const container: KeywordReference[] = [
     img: 'style/theme/game-piece.png',
     title: 'Game piece',
   },
+  {
+    group: 'style',
+    id: 'style_container_action-figure',
+    img: 'style/theme/game-piece.png',
+    title: 'Game piece',
+  },
+  // inside sphere
+  // inside tankard
+  // inside window
+  // inside bulb
+  // under microscope
+  // in a petri dish
+  // inside atrium
+  // inside bottle
+  // inside bowl
+  // inside box
+  // inside coffee cup
+  // inside cube
+  // inside fishtank
+  // inside glass flask
+  // inside glass jar
+  // inside mug
+  // inside pot
+  // inside snowglobe
 ];
 
 // orthodox

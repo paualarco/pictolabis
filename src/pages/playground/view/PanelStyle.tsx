@@ -18,7 +18,7 @@ export default function PanelStyle({
   handleRemoveKeyword,
   findKeywordOccurences,
 }: CardsActionProps) {
-  const [tabValue, setTabValue] = useState('theme');
+  const [tabValue, setTabValue] = useState('movement');
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
@@ -47,12 +47,12 @@ export default function PanelStyle({
         }}
         onChange={handleTabChange}
       >
-        <Tab label="Theme" value="theme" />
+        <Tab label="Movement" value="movement" />
         <Tab label="Technique" value="technique" />
         <Tab label="Tone" value="tone" />
         <Tab label="Contextual Information" value="contextual-information" />
       </TabList>
-      <TabPanel value="theme">
+      <TabPanel value="movement">
         <PanelGridCards
           cards={movement.map(referenceToCard)}
           handleAddKeyword={handleAddKeyword}

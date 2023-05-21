@@ -22,7 +22,7 @@ import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { groupColor } from 'src/types/Group';
 import KeywordCard from 'src/components/card/KeywordCard';
 import PanelGridCards from 'src/components/card/GridKeywordCards';
-import { emotion, motion } from 'src/assets/data/cards/qualities';
+import { emotion, motion, texture } from 'src/assets/data/cards/qualities';
 import { referenceToCard } from 'src/utils/cards';
 import { CardsActionProps } from '../types/CardActionProps';
 
@@ -65,12 +65,11 @@ export default function PanelQualities({
       >
         <Tab label="Motion" value="motion" />
         <Tab label="Feel" value="feel" />
-        <Tab label="Colour" value="colour" />
-        <Tab label="Texture" value="texture" />
+        <Tab label="Colour & Texture" value="color&texture" />
         <Tab label="Lighting" value="lighting" />
         <Tab label="Profession" value="profession" />
       </TabList>
-      <Tab label="Films" value="films" />
+
       <TabPanel value="motion">
         <PanelGridCards
           cards={motion.map(referenceToCard)}
@@ -82,6 +81,14 @@ export default function PanelQualities({
       <TabPanel value="feel">
         <PanelGridCards
           cards={emotion.map(referenceToCard)}
+          handleAddKeyword={handleAddKeyword}
+          handleRemoveKeyword={handleRemoveKeyword}
+          findKeywordOccurences={findKeywordOccurences}
+        />
+      </TabPanel>
+      <TabPanel value="color&texture">
+        <PanelGridCards
+          cards={texture.map(referenceToCard)}
           handleAddKeyword={handleAddKeyword}
           handleRemoveKeyword={handleRemoveKeyword}
           findKeywordOccurences={findKeywordOccurences}
