@@ -1,9 +1,5 @@
-## USING YARN (Recommend)
+## Pictolabis
 
-- yarn install
-- yarn start
+⚠️ Discontinued project ⚠️
 
-## USING NPM
-
-- npm i OR npm i --legacy-peer-deps
-- npm start
+Image prompt explorer, designed to provide a bast set of classified keywords that spark your creativity and help write original and inspiring prompts for image generation.
