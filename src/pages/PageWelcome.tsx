@@ -47,14 +47,12 @@ export default function PageWelcome() {
   const paragraphWhoIsItFor =
     'Whether you are a professional artist or just someone who loves to create, our web app is here to support your creative process by generating prompts that will ignite your imagination.🔥';
 
-  const paragraph6 =
-    'Overall, we aim to be a fun, engaging, and helpful resource for artists and to enhance creativity on their image generation process and unlock new creative possibilities.';
 
   // Creating effective prompts for AI-generated image generation is crucial for achieving desired results.
   const paragraphStateOfTheArt1 =
     "A prompt serves as a guiding instruction that directs the AI model's output. But humans are still responsible of writing good prompts. Which is not as trivial, there are a bast variety of keywords, styles, attributes and many other parameters that can have an impact to the result.";
   const paragraphStateOfTheArt2 =
-    'We fill that gap, a resource to help inspiring users to come up with original prompts and refine creative ideas to generate unique and diverse images.';
+    'Thus, Pictolabis helps inspiring users to come up with original prompts and refine creative ideas to generate unique and diverse images.';
 
   const paragraphStateOfTheArt3 =
     'It serves as a catalyst for sparking creativity and pushing the boundaries of what is possible in image generation, just like how a tasty appetizer can whet your appetite for more culinary delights.';
@@ -74,23 +72,12 @@ export default function PageWelcome() {
       <Container maxWidth={themeStretch ? false : 'md'} sx={{ marginTop: '20px' }}>
         <Typography gutterBottom>Welcome to Pictolabis!👋🏼</Typography>
         <Typography gutterBottom>
-          We are thrilled to have you here, and we are sure that you will find our tool to be a
-          valuable resource for your artistic endeavors.
-        </Typography>
-
-        <Typography gutterBottom variant="h6" marginTop={2}>
-          Purpose
-        </Typography>
-
-        <Typography gutterBottom>
-          We are an image prompt explorer, designed to provide a bast set of classified keywords
+          This is an open-source resource for your artistic endeavors.
+          An image prompt explorer, designed to provide a bast set of classified keywords
           that spark your creativity and help write original and inspiring prompts.💡🤖
         </Typography>
-
-        <Typography>{paragraph6}</Typography>
-
         <Typography gutterBottom variant="h6" marginTop={2}>
-          State of the Art
+          Motivation
         </Typography>
         <Typography>{paragraphStateOfTheArt1}</Typography>
         <Typography>{paragraphStateOfTheArt2}</Typography>
