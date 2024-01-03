@@ -92,14 +92,6 @@ export default function Header({ onOpenNav }: Props) {
         </IconButton>
         <LanguagePopover />
 
-        <IconButton
-          target="_blank"
-          aria-label="linkedin"
-          href="https://www.linkedin.com/in/paualarcon/"
-        >
-          <LinkedinIcon fontSize="large" sx={{ color: '#0071B6' }} />
-        </IconButton>
-
         {/* <NotificationsPopover /> */}
 
         {/* <ContactsPopover /> */}
