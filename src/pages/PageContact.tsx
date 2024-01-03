@@ -63,9 +63,6 @@ export default function PageContact() {
         </Typography>
         <Typography gutterBottom />
         <Typography gutterBottom>{aboutMe}</Typography>
-        <Typography variant="h6" gutterBottom>
-          Motivation
-        </Typography>
         <Typography gutterBottom>
           Lately I have been having a fun creating digital art with the power of AI. Which
           motivated me to building an app to help myself and others to come up with original
