@@ -43,7 +43,7 @@ export default function PageContact() {
   }));
 
   const aboutMe =
-    "My name is Pau Alarcón, a passionate Software Engineer - I'm a self-proclaimed coffeeaholic - I love taking cold showers and practice exercise daily if possible. But when it's time to relax, you'll find me up in the mountains with my two adorable pups, exploring all that nature has to offer.";
+    "My name is Pau Alarcón, a passionate Software Engineer - I love morning coffee and try to taking cold showers without success. My spare time is filled with exercise and mountains walks with my two adorable pups.";
 
   return (
     <>
@@ -67,7 +67,7 @@ export default function PageContact() {
           Motivation
         </Typography>
         <Typography gutterBottom>
-          Lately I have been having a blast creating digital art with the power of AI. Which
+          Lately I have been having a fun creating digital art with the power of AI. Which
           motivated me to building an app to help myself and others to come up with original
           prompts. While also practicing my frontend development skills.
         </Typography>
